@@ -1,18 +1,14 @@
 package it.hackthealps.codemates.staylocalpaylocal.opendata.service;
 
-import javax.transaction.Transactional;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import it.hackthealps.codemates.staylocalpaylocal.api.LoginApiApi;
 import it.hackthealps.codemates.staylocalpaylocal.invoker.ApiClient;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.config.OpenDataProperties;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.AccessTokenModel;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.AccessTokenRepository;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.LoginPostModel;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor

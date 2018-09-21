@@ -10,6 +10,7 @@ import it.hackthealps.codemates.staylocalpaylocal.opendata.model.AccessTokenMode
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.AccessTokenRepository;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.Accommodation;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.LoginPostModel;
+import it.hackthealps.codemates.staylocalpaylocal.opendata.model.ResultAccommodation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -23,8 +24,7 @@ public class AccommodationService {
 
     @Transactional
     public void importAccommodations() {
-        List<Accommodation> list =  accommodationApi.accommodationGetAccommodations(1, 100,
-                null,
+        ResultAccommodation results = accommodationApi.accommodationGetAccommodations(1, 100,
                 null,
                 null,
                 null,
@@ -45,5 +45,6 @@ public class AccommodationService {
                 "50.18424",
                 "8.5232",
                 "100");
+        List<Accommodation> list = results.getItems();
     }
 }
