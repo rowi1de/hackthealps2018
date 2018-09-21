@@ -18,7 +18,7 @@ public class LoginService {
 		String token = UUID.randomUUID().toString();
 		User user = repository.findById(42L).orElseThrow(() -> new NoUserException("no user in db"));
 
-		user.setToken(token);
+		user.setTransactionKey(token);
 		repository.save(user);
 
 		return new TokenDTO().setToken(token);

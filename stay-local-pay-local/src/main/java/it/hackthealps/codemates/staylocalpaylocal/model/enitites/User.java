@@ -9,20 +9,22 @@ import javax.persistence.Table;
 @Table(name = "user")
 public class User {
 
+
 	@Id
 	@GeneratedValue
 	private Long id;
 	private String name;
-	private String accountNumber;
-	private String token;
+	private String tokenIdentification;
+	//temporal
+	private String transactionKey;
 	private int points;
 
-	public String getAccountNumber() {
-		return accountNumber;
+	public String getTokenIdentification() {
+		return tokenIdentification;
 	}
 
-	public User setAccountNumber(String accountNumber) {
-		this.accountNumber = accountNumber;
+	public User setTokenIdentification(String accountNumber) {
+		this.tokenIdentification = accountNumber;
 		return this;
 	}
 
@@ -35,12 +37,12 @@ public class User {
 		return this;
 	}
 
-	public String getToken() {
-		return token;
+	public String getTransactionKey() {
+		return transactionKey;
 	}
 
-	public User setToken(String token) {
-		this.token = token;
+	public User setTransactionKey(String token) {
+		this.transactionKey = token;
 		return this;
 	}
 
@@ -52,4 +54,9 @@ public class User {
 		this.points = points;
 	}
 
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", tokenIdentification=" + tokenIdentification
+				+ ", transactionKey=" + transactionKey + ", points=" + points + "]";
+	}
 }

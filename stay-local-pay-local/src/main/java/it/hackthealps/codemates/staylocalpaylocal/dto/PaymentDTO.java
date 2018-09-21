@@ -1,21 +1,21 @@
 package it.hackthealps.codemates.staylocalpaylocal.dto;
 
-import javax.validation.constraints.NotBlank;
 
 public class PaymentDTO {
-	@NotBlank
-	private String token;
-	@NotBlank
+	// @NotBlank
+	private String customerTokenIdentification;
+	private String customerTransactionKey;
 	private int amount;
-	@NotBlank
+	private String shopTokenIdentification;
+	private String shopTransactionKey;
 	private String productID;
 
-	public String getToken() {
-		return token;
+	public String getCustomerTokenIdentification() {
+		return customerTokenIdentification;
 	}
 
-	public PaymentDTO setToken(String token) {
-		this.token = token;
+	public PaymentDTO setCustomerTokenIdentification(String token) {
+		this.customerTokenIdentification = token;
 		return this;
 	}
 
@@ -35,6 +35,30 @@ public class PaymentDTO {
 	public PaymentDTO setProductID(String productID) {
 		this.productID = productID;
 		return this;
+	}
+
+	public String getShopTokenIdentification() {
+		return shopTokenIdentification;
+	}
+
+	public void setShopTokenIdentification(String shopTokenIdentification) {
+		this.shopTokenIdentification = shopTokenIdentification;
+	}
+
+	public String getCustomerTransactionKey() {
+		return customerTransactionKey;
+	}
+
+	public void setCustomerTransactionKey(String customerTransactionKey) {
+		this.customerTransactionKey = customerTransactionKey;
+	}
+
+	public String getShopTransactionKey() {
+		return shopTransactionKey;
+	}
+
+	public void setShopTransactionKey(String shopTransactionKey) {
+		this.shopTransactionKey = shopTransactionKey;
 	}
 
 }

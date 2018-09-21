@@ -16,5 +16,23 @@ public class PayExceptionHandler extends ResponseEntityExceptionHandler {
 	@ExceptionHandler(PaymentException.class)
 	protected void paymentNotPossible() {
 	}
+	
+
+	@ResponseStatus(value = HttpStatus.BAD_REQUEST, reason = "No User")
+	@ExceptionHandler(NoUserException.class)
+	protected void noUser() {
+	}
+
+
+	@ResponseStatus(value = HttpStatus.BAD_REQUEST, reason = "No Shop")
+	@ExceptionHandler(NoShopException.class)
+	protected void noShop() {
+	}
+
+
+	@ResponseStatus(value = HttpStatus.BAD_REQUEST, reason = "No Product")
+	@ExceptionHandler(NoProductException.class)
+	protected void noProduct() {
+	}
 
 }
