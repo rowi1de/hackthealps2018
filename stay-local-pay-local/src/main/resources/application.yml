@@ -1,0 +1,4 @@
+opendata:
+    hostname: http://tourism.opendatahub.bz.it
+    user: tourism@hackthealps.it
+    password: $h4cKth34lpS
