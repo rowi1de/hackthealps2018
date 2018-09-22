@@ -9,7 +9,6 @@ import java.util.List;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.api.AccommodationApi;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.AccommodationModel;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.AccommodationResult;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.ScoreValue;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.repository.AccommodationRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -56,7 +55,6 @@ public class AccommodationService {
                                 .scoreModel(scoreService.score(item))
                         .latitude(item.getLatitude())
                         .longitude(item.getLongitude()).build())
-                        .filter(item -> item.getScoreModel().getScoreValue() != ScoreValue.ZERO_STAR)
                         .collect(toList());
 
         repository.saveAll(items);
