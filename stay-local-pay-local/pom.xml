@@ -43,10 +43,9 @@
 		</dependency>
 
 		<dependency>
-			<groupId>io.swagger</groupId>
-			<artifactId>swagger-java-client</artifactId>
+			<groupId>it.hackthealps.codemates</groupId>
+			<artifactId>open-data-integration</artifactId>
 			<version>1.0.0</version>
-			<scope>compile</scope>
 		</dependency>
 
 		<dependency>
@@ -92,50 +91,5 @@
 			<version>2.9.2</version>
 		</dependency>
 	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>io.swagger</groupId>
-				<artifactId>swagger-codegen-maven-plugin</artifactId>
-				<version>2.3.1</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-						<configuration>
-							<inputSpec>open_data_api_swagger.json</inputSpec>
-							<language>java</language>
-							<library>resttemplate</library>
-							<apiPackage>it.hackthealps.codemates.staylocalpaylocal.api</apiPackage>
-							<modelPackage>it.hackthealps.codemates.staylocalpaylocal.opendata.model</modelPackage>
-							<invokerPackage>it.hackthealps.codemates.staylocalpaylocal.invoker</invokerPackage>
-							<addCompileSourceRoot>true</addCompileSourceRoot>
-							<generateApiTests>false</generateApiTests>
-							<generateModelTests>false</generateModelTests>
-							<configOptions>
-								<dateLibrary>java8</dateLibrary>
-								<sourceFolder>src/gen/java/main</sourceFolder>
-							</configOptions>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
-
-	<repositories>
-		<repository>
-			<id>jcenter-snapshots</id>
-			<name>jcenter</name>
-			<url>https://jcenter.bintray.com/</url>
-		</repository>
-	</repositories>
-
 
 </project>
