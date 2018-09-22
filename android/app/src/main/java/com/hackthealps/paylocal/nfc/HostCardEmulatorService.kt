@@ -2,47 +2,35 @@ package com.hackthealps.paylocal.nfc
 
 import android.nfc.cardemulation.HostApduService
 import android.os.Bundle
+import android.util.Log
+import com.hackthealps.paylocal.nfc.NfcUtils.STATUS_FAILED
+import com.hackthealps.paylocal.nfc.NfcUtils.STATUS_SUCCESS
+import java.util.*
 
 class HostCardEmulatorService : HostApduService() {
     companion object {
-        val TAG = "Host Card Emulator"
-        val STATUS_SUCCESS = "9000"
-        val STATUS_FAILED = "6F00"
-        val CLA_NOT_SUPPORTED = "6E00"
-        val INS_NOT_SUPPORTED = "6D00"
-        val AID = "A0000002471001"
-        val SELECT_INS = "A4"
-        val DEFAULT_CLA = "00"
-        val MIN_APDU_LENGTH = 12
+        val TAG = HostCardEmulatorService::class.java.simpleName
+        val AID = "F222222222"
+        // unique user identifier. This should be handled to the app when
+        // the user authenticates for the first time with the backend
+        val TOKEN = "TID1234567"
     }
 
     override fun onDeactivated(reason: Int) {
-
+        // TODO handle deactivations
     }
 
     override fun processCommandApdu(commandApdu: ByteArray?, extras: Bundle?): ByteArray {
-        if (commandApdu == null) {
-            return NfcUtils.hexStringToByteArray(STATUS_FAILED)
-        }
-
-        val hexCommandApdu = NfcUtils.toHex(commandApdu)
-        if (hexCommandApdu.length < MIN_APDU_LENGTH) {
-            return NfcUtils.hexStringToByteArray(STATUS_FAILED)
-        }
-
-        if (hexCommandApdu.substring(0, 2) != DEFAULT_CLA) {
-            return NfcUtils.hexStringToByteArray(CLA_NOT_SUPPORTED)
-        }
-
-        if (hexCommandApdu.substring(2, 4) != SELECT_INS) {
-            return NfcUtils.hexStringToByteArray(INS_NOT_SUPPORTED)
-        }
-
-        if (hexCommandApdu.substring(10, 24) == AID)  {
-            return NfcUtils.hexStringToByteArray(STATUS_SUCCESS)
+        Log.i(TAG, "Received APDU: " + commandApdu?.let { NfcUtils.toHex(it) })
+        if (Arrays.equals(NfcUtils.buildSelectApdu(AID), commandApdu)) {
+            val transactionId = "$TOKEN+${generateTransactionKey()}"
+            val transactionBytes = transactionId.toByteArray()
+            Log.i(TAG, "Sending transaction number: $transactionId")
+            return NfcUtils.concatArrays(transactionBytes, NfcUtils.hexStringToByteArray(STATUS_SUCCESS))
         } else {
             return NfcUtils.hexStringToByteArray(STATUS_FAILED)
         }
     }
 
+    private fun generateTransactionKey() = UUID.randomUUID()
 }
