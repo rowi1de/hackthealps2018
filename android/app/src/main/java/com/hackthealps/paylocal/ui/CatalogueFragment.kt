@@ -10,9 +10,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.hackthealps.paylocal.R
-import com.hackthealps.paylocal.controller.AccommodationController
-import com.hackthealps.paylocal.controller.EventController
-import com.hackthealps.paylocal.controller.GastronomyController
 import com.hackthealps.paylocal.model.Category
 import kotlinx.android.synthetic.main.fragment_catalogue.view.*
 
@@ -28,8 +25,9 @@ class CatalogueFragment : Fragment() {
                 Log.d("CatalogueFragment", category.name)
 // TODO open new screen with product lists
                 val intent = Intent(context, ProductsActivity::class.java).apply {
-                    // TODO send category name
+
                 }
+                startActivity(intent)
             }
         })
 

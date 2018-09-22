@@ -22,7 +22,7 @@ android {
     }
 
     buildTypes.each {
-        it.buildConfigField 'String', 'backendBaseUrl', "\"https://f5770c5c.ngrok.io/hta/\""
+        it.buildConfigField 'String', 'backendBaseUrl', "\"http://9f722b84.ngrok.io/hta/\""
     }
 }
 
