@@ -37,6 +37,9 @@ public class ProfileController implements Callback<UserProfile> {
         if(response.isSuccessful()) {
             UserProfile profile = response.body();
             System.out.println(profile);
+//            recyclerView.setAdapter(new MoviesAdapter(movies, R.layout.list_item_movie, getApplicationContext()));
+//
+//            Log.d(TAG, "Number of movies received: " + movies.size());
         } else {
             System.out.println(response.errorBody());
         }

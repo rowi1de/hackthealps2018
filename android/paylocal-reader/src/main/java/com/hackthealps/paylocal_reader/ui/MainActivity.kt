@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import com.hackthealps.paylocal_reader.R
+import com.hackthealps.paylocal_reader.model.Payment
 import com.hackthealps.paylocal_reader.nfc.NfcUtils
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.IOException
@@ -88,8 +89,21 @@ class MainActivity : AppCompatActivity(), NfcAdapter.ReaderCallback {
 
         }
     }
+    val url = "localhost:3333/hta/pay"
 
     private fun handleTransaction(transactionId: String) {
+        var jsonString = Payment("77bc0dd8-2ce2-47a6-95f4-ef01b087b723", "TID1234567",1 ,"TID0000001","bla",1,"Verleierhof",true)
+        val jsonObjectRequest = JsonObjectRequest(Request.Method.POST, url, jsonString,
+                Response.Listener { response ->
+                    //TODO ok?
+                },
+                Response.ErrorListener { error ->
+                    // TODO: Handle error
+                }
+        )
+
+        val queue = Volley.newRequestQueue(this)
+        queue.add(jsonObjectRequest)
 
     }
 }
