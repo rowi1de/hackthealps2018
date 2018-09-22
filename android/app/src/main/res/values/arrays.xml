@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="page_colors">
+        <item>@color/mainPageColor</item>
+        <item>@color/cataloguePageColor</item>
+    </array>
+    <array name="status_colors">
+        <item>@color/mainPageColorDark</item>
+        <item>@color/cataloguePageColorDark</item>
+    </array>
+</resources>
