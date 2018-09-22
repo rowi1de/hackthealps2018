@@ -5,6 +5,7 @@ import it.hackthealps.codemates.staylocalpaylocal.opendata.invoker.ApiClient;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.ActivityPoiReduced;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.GBLTSActivityPoiLocalized;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.GBLTSPoi;
+import it.hackthealps.codemates.staylocalpaylocal.opendata.model.PoiResult;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.PoiTypes;
 
 import java.util.HashMap;
@@ -85,7 +86,7 @@ public class PoiApi {
      * @return List&lt;GBLTSPoi&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public List<GBLTSPoi> poiGetAllPoisChanged(Integer pagenumber, Integer pagesize, String seed, String updatefrom) throws RestClientException {
+    public PoiResult poiGetAllPoisChanged(Integer pagenumber, Integer pagesize, String seed, String updatefrom) throws RestClientException {
         Object postBody = null;
         
         String path = UriComponentsBuilder.fromPath("/api/PoiChanged").build().toUriString();
@@ -108,7 +109,7 @@ public class PoiApi {
 
         String[] authNames = new String[] {  };
 
-        ParameterizedTypeReference<List<GBLTSPoi>> returnType = new ParameterizedTypeReference<List<GBLTSPoi>>() {};
+        ParameterizedTypeReference<PoiResult> returnType = new ParameterizedTypeReference<PoiResult>() {};
         return apiClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
     }
     /**
@@ -133,7 +134,7 @@ public class PoiApi {
      * @return List&lt;GBLTSPoi&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public List<GBLTSPoi> poiGetPoiFiltered(Integer pagenumber, Integer pagesize, String poitype, String subtype, String idlist, String locfilter, String areafilter, String highlight, String odhtagfilter, String active, String odhactive, String seed, String latitude, String longitude, String radius) throws RestClientException {
+    public PoiResult poiGetPoiFiltered(Integer pagenumber, Integer pagesize, String poitype, String subtype, String idlist, String locfilter, String areafilter, String highlight, String odhtagfilter, String active, String odhactive, String seed, String latitude, String longitude, String radius) throws RestClientException {
         Object postBody = null;
         
         String path = UriComponentsBuilder.fromPath("/api/Poi").build().toUriString();
@@ -167,7 +168,7 @@ public class PoiApi {
 
         String[] authNames = new String[] {  };
 
-        ParameterizedTypeReference<List<GBLTSPoi>> returnType = new ParameterizedTypeReference<List<GBLTSPoi>>() {};
+        ParameterizedTypeReference<PoiResult> returnType = new ParameterizedTypeReference<PoiResult>() {};
         return apiClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
     }
     /**

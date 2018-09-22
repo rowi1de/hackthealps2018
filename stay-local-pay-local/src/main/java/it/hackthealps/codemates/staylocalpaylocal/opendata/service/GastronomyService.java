@@ -41,7 +41,7 @@ public class GastronomyService {
                 null,
                 "50.18424",
                 "8.5232",
-                "100");
+                "200");
 
         final List<GastronomyModel> items =
                 result.getItems().stream()
