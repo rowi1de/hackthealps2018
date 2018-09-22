@@ -25,3 +25,5 @@
 /.nb-gradle/
 .gradle
 gradle
+**.DS_STORE
+.DS_Store
