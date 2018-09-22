@@ -24,3 +24,13 @@ id = ?, 2 star, name = "Chefs Table" im Küglerhof"
 id = ?, 0 star, name = "3 Fiori"
 id = ?, 1 star, name = Accademia
 extra rewards if you arrive via train/oeffi/car/bike-sharing
+
+Sample JSON
+{
+    "firstName": "Ben",
+    "lastName": "Damien",
+    "tokenIdent": "TID1234567",
+    "total": 1600,
+    "rewards": 50,
+    "text": null
+}
