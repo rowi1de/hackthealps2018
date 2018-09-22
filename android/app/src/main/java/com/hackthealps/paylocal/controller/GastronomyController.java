@@ -2,6 +2,7 @@ package com.hackthealps.paylocal.controller;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.hackthealps.paylocal.BuildConfig;
 import com.hackthealps.paylocal.api.GastronomyApi;
 import com.hackthealps.paylocal.model.GastronomyModel;
 
@@ -15,15 +16,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class GastronomyController implements Callback<List<GastronomyModel>> {
 
-    static final String BASE_URL = "https://f5770c5c.ngrok.io/hta/";
-
     public void start() {
         Gson gson = new GsonBuilder()
                 .setLenient()
                 .create();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(BuildConfig.backendBaseUrl)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 

@@ -2,6 +2,7 @@ package com.hackthealps.paylocal.controller;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.hackthealps.paylocal.BuildConfig;
 import com.hackthealps.paylocal.api.EventApi;
 import com.hackthealps.paylocal.model.EventModel;
 
@@ -23,7 +24,7 @@ public class EventController implements Callback<List<EventModel>> {
                 .create();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(BuildConfig.backendBaseUrl)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 

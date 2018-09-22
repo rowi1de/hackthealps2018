@@ -20,6 +20,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    buildTypes.each {
+        it.buildConfigField 'String', 'backendBaseUrl', "\"https://f5770c5c.ngrok.io/hta/\""
+    }
 }
 
 dependencies {
