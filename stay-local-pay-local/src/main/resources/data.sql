@@ -1,5 +1,5 @@
 insert into user
-values(42,'dummy', 0, 'TID1234567', NULL);
+values(42,'dummy', 50, 'TID1234567', NULL);
 insert into shop
 values(43,'farmer', 0, 'TID0000001', NULL);
 insert into shop

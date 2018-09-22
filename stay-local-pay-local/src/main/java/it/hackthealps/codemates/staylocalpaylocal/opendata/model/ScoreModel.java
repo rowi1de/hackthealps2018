@@ -17,6 +17,10 @@ public class ScoreModel extends BaseModel implements Comparable<ScoreModel> {
     @Embedded
     final List<String> scoreCriteria;
 
+    public ScoreValue getScoreValue()
+    {
+    	return scoreValue;
+    }
     @Override
     public int compareTo(ScoreModel o) {
         return this.scoreValue.ordinal() - o.scoreValue.ordinal();

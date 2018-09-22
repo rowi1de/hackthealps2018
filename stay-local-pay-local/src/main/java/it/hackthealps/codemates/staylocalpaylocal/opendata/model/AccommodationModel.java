@@ -22,4 +22,40 @@ public class AccommodationModel extends BaseModel {
     @OneToOne
     @Cascade(CascadeType.ALL)
     private ScoreModel scoreModel;
+
+	public String getTitle() {
+		return title;
+	}
+
+	public AccommodationModel setTitle(String title) {
+		this.title = title;
+		return this;
+	}
+
+	public Double getLatitude() {
+		return latitude;
+	}
+
+	public AccommodationModel setLatitude(Double latitude) {
+		this.latitude = latitude;
+		return this;
+	}
+
+	public Double getLongitude() {
+		return longitude;
+	}
+
+	public AccommodationModel setLongitude(Double longitude) {
+		this.longitude = longitude;
+		return this;
+	}
+
+	public ScoreModel getScoreModel() {
+		return scoreModel;
+	}
+
+	public AccommodationModel setScoreModel(ScoreModel scoreModel) {
+		this.scoreModel = scoreModel;
+		return this;
+	}
 }

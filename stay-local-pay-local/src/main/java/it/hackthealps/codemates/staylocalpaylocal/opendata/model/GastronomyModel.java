@@ -13,13 +13,49 @@ import org.hibernate.annotations.CascadeType;
 @Builder
 public class GastronomyModel extends BaseModel {
 
-    private String title;
+	private String title;
 
-    private Double latitude;
+	private Double latitude;
 
-    private Double longitude;
+	private Double longitude;
 
-    @OneToOne
-    @Cascade(CascadeType.ALL)
-    private ScoreModel scoreModel;
+	@OneToOne
+	@Cascade(CascadeType.ALL)
+	private ScoreModel scoreModel;
+
+	public String getTitle() {
+		return title;
+	}
+
+	public GastronomyModel setTitle(String title) {
+		this.title = title;
+		return this;
+	}
+
+	public Double getLatitude() {
+		return latitude;
+	}
+
+	public GastronomyModel setLatitude(Double latitude) {
+		this.latitude = latitude;
+		return this;
+	}
+
+	public Double getLongitude() {
+		return longitude;
+	}
+
+	public GastronomyModel setLongitude(Double longitude) {
+		this.longitude = longitude;
+		return this;
+	}
+
+	public ScoreModel getScoreModel() {
+		return scoreModel;
+	}
+
+	public GastronomyModel setScoreModel(ScoreModel scoreModel) {
+		this.scoreModel = scoreModel;
+		return this;
+	}
 }

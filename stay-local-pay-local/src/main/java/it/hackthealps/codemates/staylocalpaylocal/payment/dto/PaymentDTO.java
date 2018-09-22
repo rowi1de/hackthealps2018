@@ -8,7 +8,7 @@ public class PaymentDTO {
 	private int amount;
 	private String shopTokenIdentification;
 	private String shopTransactionKey;
-	private String productID;
+	private Long modelID;
 
 	public String getCustomerTokenIdentification() {
 		return customerTokenIdentification;
@@ -28,12 +28,12 @@ public class PaymentDTO {
 		return this;
 	}
 
-	public String getProductID() {
-		return productID;
+	public Long getModelID() {
+		return modelID;
 	}
 
-	public PaymentDTO setProductID(String productID) {
-		this.productID = productID;
+	public PaymentDTO setModelID(Long modelID) {
+		this.modelID = modelID;
 		return this;
 	}
 
