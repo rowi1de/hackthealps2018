@@ -48,6 +48,7 @@ public class EventService {
                         .collect(toList());
 
         repository.saveAll(items);
+        repository.flush();
     }
 
     @Transactional

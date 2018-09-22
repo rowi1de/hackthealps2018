@@ -48,6 +48,8 @@ public class GastronomyService {
                         .collect(toList());
 
         repository.saveAll(items);
+        repository.flush();
+
     }
 
     @Transactional

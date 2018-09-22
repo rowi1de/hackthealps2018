@@ -20,7 +20,6 @@ public class AccommodationService {
 
     private final AccommodationRepository repository;
 
-
     @Transactional
     public void importAccommodations() {
         AccommodationResult result = accommodationApi.accommodationGetAccommodations(1, 100,
@@ -53,6 +52,7 @@ public class AccommodationService {
                         .collect(toList());
 
         repository.saveAll(items);
+        repository.flush();
     }
 
     @Transactional
