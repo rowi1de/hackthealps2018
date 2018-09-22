@@ -4,7 +4,6 @@
     <color name="colorPrimaryDark">#2e3b42</color>
     <color name="colorAccent">#FF4081</color>
 
-    #368c1e
     <color name="mainPageColor">#368c1e</color>
     <color name="mainPageColorDark">#286b15</color>
     <color name="cataloguePageColor">#5C93DC</color>
@@ -13,4 +12,7 @@
 
     <color name="tempColor">#37474f</color>
     <color name="tempColorDark">#2e3b42</color>
+
+    <color name="lightGrey">#eaeeef</color>
+    <color name="lightGreyDark">#b3bdbf</color>
 </resources>

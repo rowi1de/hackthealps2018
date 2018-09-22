@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity(), NfcAdapter.ReaderCallback {
 
     override fun onTagDiscovered(tag: Tag?) {
         Log.d(TAG, "New tag discovered")
-        log_tv.text = "${log_tv.text} \n New tag discovered"
+        //log_tv.text = "${log_tv.text} \n New tag discovered"
         // Android's Host-based Card Emulation (HCE) feature implements the ISO-DEP (ISO 14443-4)
         // protocol.
         //
@@ -62,11 +62,11 @@ class MainActivity : AppCompatActivity(), NfcAdapter.ReaderCallback {
                 // Build SELECT AID command for our loyalty card service.
                 // This command tells the remote device which service we wish to communicate with.
                 Log.d(TAG, "Requesting remote AID: $AID")
-                log_tv.text = "${log_tv.text} \n Requesting remote AID: $AID"
+                //log_tv.text = "${log_tv.text} \n Requesting remote AID: $AID"
                 val command = NfcUtils.buildSelectApdu(AID)
                 // Send command to remote device
                 Log.d(TAG, "Sending: " + NfcUtils.toHex(command))
-                log_tv.text = "${log_tv.text} \n Sending: ${NfcUtils.toHex(command)}"
+                //log_tv.text = "${log_tv.text} \n Sending: ${NfcUtils.toHex(command)}"
                 val result = isoDep.transceive(command)
                 // If AID is successfully selected, 0x9000 is returned as the status word (last 2
                 // bytes of the result) by convention. Everything before the status word is
@@ -78,12 +78,12 @@ class MainActivity : AppCompatActivity(), NfcAdapter.ReaderCallback {
                     // The remote NFC device will immediately respond with its transaction data
                     val transactionId = String(payload, Charset.forName("UTF-8"))
                     Log.d(TAG, "Transaction received: $transactionId")
-                    log_tv.text = "${log_tv.text} \n Transaction received: $transactionId"
+                    //log_tv.text = "${log_tv.text} \n Transaction received: $transactionId"
                     handleTransaction(transactionId)
                 }
             } catch (e: IOException) {
                 Log.e(TAG, "Error communicating with card: " + e.toString())
-                log_tv.text = "${log_tv.text} \n Error communicating with card"
+                //log_tv.text = "${log_tv.text} \n Error communicating with card"
             }
 
         }
