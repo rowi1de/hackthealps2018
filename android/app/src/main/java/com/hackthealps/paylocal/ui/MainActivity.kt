@@ -1,4 +1,4 @@
-package com.hackthealps.paylocal.main
+package com.hackthealps.paylocal.ui
 
 import android.animation.ArgbEvaluator
 import android.os.Bundle
