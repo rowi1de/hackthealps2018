@@ -1,5 +1,7 @@
 package com.hackthealps.paylocal.controller;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.hackthealps.paylocal.api.ProfileApi;
 import com.hackthealps.paylocal.model.UserProfile;
 
@@ -35,7 +37,6 @@ public class ProfileController implements Callback<UserProfile> {
         if(response.isSuccessful()) {
             UserProfile profile = response.body();
             System.out.println(profile);
-
         } else {
             System.out.println(response.errorBody());
         }
