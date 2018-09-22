@@ -1,0 +1,52 @@
+
+# Accommodation
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | **String** |  |  [optional]
+**active** | **Boolean** |  |  [optional]
+**hgvId** | **String** |  |  [optional]
+**shortname** | **String** |  |  [optional]
+**units** | **Integer** |  |  [optional]
+**beds** | **Integer** |  |  [optional]
+**hasApartment** | **Boolean** |  |  [optional]
+**hasRoom** | **Boolean** |  |  [optional]
+**isCamping** | **Boolean** |  |  [optional]
+**isGastronomy** | **Boolean** |  |  [optional]
+**isBookable** | **Boolean** |  |  [optional]
+**isAccommodation** | **Boolean** |  |  [optional]
+**smgActive** | **Boolean** |  |  [optional]
+**tvMember** | **Boolean** |  |  [optional]
+**tourismVereinId** | **String** |  |  [optional]
+**mainLanguage** | **String** |  |  [optional]
+**firstImport** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
+**lastChange** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
+**gpstype** | **String** |  |  [optional]
+**latitude** | **Double** |  |  [optional]
+**longitude** | **Double** |  |  [optional]
+**altitude** | **Double** |  |  [optional]
+**altitudeUnitofMeasure** | **String** |  |  [optional]
+**accoCategoryId** | **String** |  |  [optional]
+**accoTypeId** | **String** |  |  [optional]
+**districtId** | **String** |  |  [optional]
+**boardIds** | **List&lt;String&gt;** |  |  [optional]
+**marketingGroupIds** | **List&lt;String&gt;** |  |  [optional]
+**features** | [**List&lt;AccoFeature&gt;**](AccoFeature.md) |  |  [optional]
+**badgeIds** | **List&lt;String&gt;** |  |  [optional]
+**themeIds** | **List&lt;String&gt;** |  |  [optional]
+**specialFeaturesIds** | **List&lt;String&gt;** |  |  [optional]
+**accoDetail** | [**Map&lt;String, AccoDetail&gt;**](AccoDetail.md) |  |  [optional]
+**accoBookingChannel** | [**List&lt;AccoBookingChannel&gt;**](AccoBookingChannel.md) |  |  [optional]
+**imageGallery** | [**List&lt;ImageGallery&gt;**](ImageGallery.md) |  |  [optional]
+**locationInfo** | [**LocationInfo**](LocationInfo.md) |  |  [optional]
+**gastronomyId** | **String** |  |  [optional]
+**smgTags** | **List&lt;String&gt;** |  |  [optional]
+**hasLanguage** | **List&lt;String&gt;** |  |  [optional]
+**mssResponseShort** | [**List&lt;MssResponseShort&gt;**](MssResponseShort.md) |  |  [optional]
+**trustYouID** | **String** |  |  [optional]
+**trustYouScore** | **Double** |  |  [optional]
+**trustYouResults** | **Integer** |  |  [optional]
+
+
+
