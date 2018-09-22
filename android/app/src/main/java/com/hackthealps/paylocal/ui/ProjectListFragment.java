@@ -1,6 +1,5 @@
 package com.hackthealps.paylocal.ui;
 
-import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
@@ -20,14 +19,12 @@ import com.hackthealps.paylocal.ui.callback.EventModelCallback;
 
 import java.util.List;
 
-import javax.inject.Inject;
 
 public class ProjectListFragment extends Fragment {
     public static final String TAG = "ProjectListFragment";
     private EventModelAdapter projectAdapter;
     private FragmentEventListBinding binding;
 
-    @Inject
     ViewModelProvider.Factory viewModelFactory;
 
     @Nullable
@@ -68,9 +65,7 @@ public class ProjectListFragment extends Fragment {
     private final EventModelCallback projectClickCallback = new EventModelCallback() {
         @Override
         public void onClick(EventModel project) {
-            if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
-                ((MainActivity) getActivity()).show(project);
-            }
+            //TODO: Change View Pager or so?
         }
     };
 }
