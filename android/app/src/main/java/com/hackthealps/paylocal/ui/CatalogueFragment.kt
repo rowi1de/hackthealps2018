@@ -1,6 +1,7 @@
 package com.hackthealps.paylocal.ui
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -23,6 +24,10 @@ class CatalogueFragment : Fragment() {
             override fun onItemClick(category: Category) {
                 Log.d("CatalogueFragment", category.name)
                 // TODO open new screen with product lists
+                val intent = Intent(context, ProductsActivity::class.java).apply {
+                    // TODO send category name
+                }
+                startActivity(intent)
             }
         })
 
