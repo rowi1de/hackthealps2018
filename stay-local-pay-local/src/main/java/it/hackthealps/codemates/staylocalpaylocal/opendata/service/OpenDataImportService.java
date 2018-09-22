@@ -16,11 +16,14 @@ public class OpenDataImportService implements CommandLineRunner {
 
     private final GastronomyService gastronomyService;
 
+    private final PoiService poiService;
+
     @Override
     public void run(String... strings) {
         loginService.login();
         accommodationService.importAccommodations();
         eventService.importEvents();
         gastronomyService.importGastronomy();
+        poiService.importPoi();
     }
 }

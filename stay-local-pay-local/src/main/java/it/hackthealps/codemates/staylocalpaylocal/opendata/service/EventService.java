@@ -41,7 +41,7 @@ public class EventService {
                 null,
                 "50.18424",
                 "8.5232",
-                "100");
+                "200");
 
         final List<EventModel> items =
                 result.getItems().stream()
