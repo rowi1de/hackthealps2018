@@ -1,10 +1,5 @@
 package it.hackthealps.codemates.staylocalpaylocal.payment.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-
 import it.hackthealps.codemates.staylocalpaylocal.common.NoProductException;
 import it.hackthealps.codemates.staylocalpaylocal.common.NoShopException;
 import it.hackthealps.codemates.staylocalpaylocal.common.NoUserException;
@@ -12,6 +7,10 @@ import it.hackthealps.codemates.staylocalpaylocal.payment.controller.api.IPaymen
 import it.hackthealps.codemates.staylocalpaylocal.payment.dto.PaymentDTO;
 import it.hackthealps.codemates.staylocalpaylocal.payment.dto.RewardDTO;
 import it.hackthealps.codemates.staylocalpaylocal.payment.service.PaymentService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class PaymentController implements IPaymentController {
@@ -20,7 +19,8 @@ public class PaymentController implements IPaymentController {
 	PaymentService service;
 
 	@Override
-	public ResponseEntity<RewardDTO> uploadInvoiceForOCR(@RequestBody PaymentDTO payment) throws NoUserException, NoShopException, NoProductException  {
+	public ResponseEntity<RewardDTO> pay(@RequestBody PaymentDTO payment)
+			throws NoUserException, NoShopException, NoProductException {
 
 		return service.pay(payment) ? ResponseEntity.ok(new RewardDTO().setReward("100 Points"))
 				: ResponseEntity.badRequest().build();
