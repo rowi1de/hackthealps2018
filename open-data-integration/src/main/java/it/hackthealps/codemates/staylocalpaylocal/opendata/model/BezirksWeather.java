@@ -13,16 +13,12 @@
 
 package it.hackthealps.codemates.staylocalpaylocal.opendata.model;
 
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.BezirksForecast;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * BezirksWeather
@@ -36,7 +32,7 @@ public class BezirksWeather {
   private String districtName = null;
 
   @JsonProperty("date")
-  private OffsetDateTime date = null;
+  private String date = null;
 
   @JsonProperty("TourismVereinIds")
   private List<String> tourismVereinIds = null;
@@ -80,7 +76,7 @@ public class BezirksWeather {
     this.districtName = districtName;
   }
 
-  public BezirksWeather date(OffsetDateTime date) {
+  public BezirksWeather date(String date) {
     this.date = date;
     return this;
   }
@@ -90,11 +86,11 @@ public class BezirksWeather {
    * @return date
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getDate() {
+  public String getDate() {
     return date;
   }
 
-  public void setDate(OffsetDateTime date) {
+  public void setDate(String date) {
     this.date = date;
   }
 

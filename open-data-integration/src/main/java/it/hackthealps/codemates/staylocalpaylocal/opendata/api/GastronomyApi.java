@@ -5,6 +5,7 @@ import it.hackthealps.codemates.staylocalpaylocal.opendata.invoker.ApiClient;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.Gastronomy;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.GastronomyLocalized;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.GastronomyReduced;
+import it.hackthealps.codemates.staylocalpaylocal.opendata.model.GastronomyResult;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.GastronomyTypes;
 
 import java.util.HashMap;
@@ -57,7 +58,7 @@ public class GastronomyApi {
      * @return List&lt;Gastronomy&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public List<Gastronomy> gastronomyGetAllGastronomyChanged(Integer pagenumber, Integer pagesize, String seed, String updatefrom) throws RestClientException {
+    public GastronomyResult gastronomyGetAllGastronomyChanged(Integer pagenumber, Integer pagesize, String seed, String updatefrom) throws RestClientException {
         Object postBody = null;
         
         String path = UriComponentsBuilder.fromPath("/api/GastronomyChanged").build().toUriString();
@@ -80,7 +81,7 @@ public class GastronomyApi {
 
         String[] authNames = new String[] {  };
 
-        ParameterizedTypeReference<List<Gastronomy>> returnType = new ParameterizedTypeReference<List<Gastronomy>>() {};
+        ParameterizedTypeReference<GastronomyResult> returnType = new ParameterizedTypeReference<GastronomyResult>() {};
         return apiClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
     }
     /**
@@ -134,7 +135,7 @@ public class GastronomyApi {
      * @return List&lt;Gastronomy&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public List<Gastronomy> gastronomyGetGastronomyList(Integer pagenumber, Integer pagesize, String idlist, String locfilter, String dishcodefilter, String ceremonycodefilter, String categorycodefilter, String facilitycodefilter, String cuisinecodefilter, String odhtagfilter, String active, String odhactive, String seed, String latitude, String longitude, String radius) throws RestClientException {
+    public GastronomyResult gastronomyGetGastronomyList(Integer pagenumber, Integer pagesize, String idlist, String locfilter, String dishcodefilter, String ceremonycodefilter, String categorycodefilter, String facilitycodefilter, String cuisinecodefilter, String odhtagfilter, String active, String odhactive, String seed, String latitude, String longitude, String radius) throws RestClientException {
         Object postBody = null;
         
         String path = UriComponentsBuilder.fromPath("/api/Gastronomy").build().toUriString();
@@ -169,7 +170,7 @@ public class GastronomyApi {
 
         String[] authNames = new String[] {  };
 
-        ParameterizedTypeReference<List<Gastronomy>> returnType = new ParameterizedTypeReference<List<Gastronomy>>() {};
+        ParameterizedTypeReference<GastronomyResult> returnType = new ParameterizedTypeReference<GastronomyResult>() {};
         return apiClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
     }
     /**

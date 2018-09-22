@@ -13,17 +13,12 @@
 
 package it.hackthealps.codemates.staylocalpaylocal.opendata.model;
 
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.LocationInfo;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.WeatherObservation;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Measuringpoint
@@ -34,10 +29,10 @@ public class Measuringpoint {
   private String id = null;
 
   @JsonProperty("FirstImport")
-  private OffsetDateTime firstImport = null;
+  private String firstImport = null;
 
   @JsonProperty("LastUpdate")
-  private OffsetDateTime lastUpdate = null;
+  private String lastUpdate = null;
 
   @JsonProperty("Active")
   private Boolean active = null;
@@ -73,7 +68,7 @@ public class Measuringpoint {
   private String temperature = null;
 
   @JsonProperty("LastSnowDate")
-  private OffsetDateTime lastSnowDate = null;
+  private String lastSnowDate = null;
 
   @JsonProperty("WeatherObservation")
   private List<WeatherObservation> weatherObservation = null;
@@ -105,7 +100,7 @@ public class Measuringpoint {
     this.id = id;
   }
 
-  public Measuringpoint firstImport(OffsetDateTime firstImport) {
+  public Measuringpoint firstImport(String firstImport) {
     this.firstImport = firstImport;
     return this;
   }
@@ -115,15 +110,15 @@ public class Measuringpoint {
    * @return firstImport
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getFirstImport() {
+  public String getFirstImport() {
     return firstImport;
   }
 
-  public void setFirstImport(OffsetDateTime firstImport) {
+  public void setFirstImport(String firstImport) {
     this.firstImport = firstImport;
   }
 
-  public Measuringpoint lastUpdate(OffsetDateTime lastUpdate) {
+  public Measuringpoint lastUpdate(String lastUpdate) {
     this.lastUpdate = lastUpdate;
     return this;
   }
@@ -133,11 +128,11 @@ public class Measuringpoint {
    * @return lastUpdate
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getLastUpdate() {
+  public String getLastUpdate() {
     return lastUpdate;
   }
 
-  public void setLastUpdate(OffsetDateTime lastUpdate) {
+  public void setLastUpdate(String lastUpdate) {
     this.lastUpdate = lastUpdate;
   }
 
@@ -339,7 +334,7 @@ public class Measuringpoint {
     this.temperature = temperature;
   }
 
-  public Measuringpoint lastSnowDate(OffsetDateTime lastSnowDate) {
+  public Measuringpoint lastSnowDate(String lastSnowDate) {
     this.lastSnowDate = lastSnowDate;
     return this;
   }
@@ -349,11 +344,11 @@ public class Measuringpoint {
    * @return lastSnowDate
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getLastSnowDate() {
+  public String getLastSnowDate() {
     return lastSnowDate;
   }
 
-  public void setLastSnowDate(OffsetDateTime lastSnowDate) {
+  public void setLastSnowDate(String lastSnowDate) {
     this.lastSnowDate = lastSnowDate;
   }
 

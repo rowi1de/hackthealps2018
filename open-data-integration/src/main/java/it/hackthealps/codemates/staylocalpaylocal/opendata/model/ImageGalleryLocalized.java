@@ -14,12 +14,9 @@
 package it.hackthealps.codemates.staylocalpaylocal.opendata.model;
 
 import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
 
 /**
  * ImageGalleryLocalized
@@ -54,10 +51,10 @@ public class ImageGalleryLocalized {
   private Integer listPosition = null;
 
   @JsonProperty("ValidFrom")
-  private OffsetDateTime validFrom = null;
+  private String validFrom = null;
 
   @JsonProperty("ValidTo")
-  private OffsetDateTime validTo = null;
+  private String validTo = null;
 
   @JsonProperty("CopyRight")
   private String copyRight = null;
@@ -224,7 +221,7 @@ public class ImageGalleryLocalized {
     this.listPosition = listPosition;
   }
 
-  public ImageGalleryLocalized validFrom(OffsetDateTime validFrom) {
+  public ImageGalleryLocalized validFrom(String validFrom) {
     this.validFrom = validFrom;
     return this;
   }
@@ -234,15 +231,15 @@ public class ImageGalleryLocalized {
    * @return validFrom
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getValidFrom() {
+  public String getValidFrom() {
     return validFrom;
   }
 
-  public void setValidFrom(OffsetDateTime validFrom) {
+  public void setValidFrom(String validFrom) {
     this.validFrom = validFrom;
   }
 
-  public ImageGalleryLocalized validTo(OffsetDateTime validTo) {
+  public ImageGalleryLocalized validTo(String validTo) {
     this.validTo = validTo;
     return this;
   }
@@ -252,11 +249,11 @@ public class ImageGalleryLocalized {
    * @return validTo
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getValidTo() {
+  public String getValidTo() {
     return validTo;
   }
 
-  public void setValidTo(OffsetDateTime validTo) {
+  public void setValidTo(String validTo) {
     this.validTo = validTo;
   }
 

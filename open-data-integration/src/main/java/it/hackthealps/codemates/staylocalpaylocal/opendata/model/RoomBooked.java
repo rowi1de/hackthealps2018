@@ -14,12 +14,9 @@
 package it.hackthealps.codemates.staylocalpaylocal.opendata.model;
 
 import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
 
 /**
  * RoomBooked
@@ -45,10 +42,10 @@ public class RoomBooked {
   private String comment = null;
 
   @JsonProperty("StartDate")
-  private OffsetDateTime startDate = null;
+  private String startDate = null;
 
   @JsonProperty("EndDate")
-  private OffsetDateTime endDate = null;
+  private String endDate = null;
 
   @JsonProperty("StartDateUTC")
   private Double startDateUTC = null;
@@ -164,7 +161,7 @@ public class RoomBooked {
     this.comment = comment;
   }
 
-  public RoomBooked startDate(OffsetDateTime startDate) {
+  public RoomBooked startDate(String startDate) {
     this.startDate = startDate;
     return this;
   }
@@ -174,15 +171,15 @@ public class RoomBooked {
    * @return startDate
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getStartDate() {
+  public String getStartDate() {
     return startDate;
   }
 
-  public void setStartDate(OffsetDateTime startDate) {
+  public void setStartDate(String startDate) {
     this.startDate = startDate;
   }
 
-  public RoomBooked endDate(OffsetDateTime endDate) {
+  public RoomBooked endDate(String endDate) {
     this.endDate = endDate;
     return this;
   }
@@ -192,11 +189,11 @@ public class RoomBooked {
    * @return endDate
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getEndDate() {
+  public String getEndDate() {
     return endDate;
   }
 
-  public void setEndDate(OffsetDateTime endDate) {
+  public void setEndDate(String endDate) {
     this.endDate = endDate;
   }
 

@@ -13,16 +13,12 @@
 
 package it.hackthealps.codemates.staylocalpaylocal.opendata.model;
 
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.RoomBooked;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * EventShort
@@ -60,13 +56,13 @@ public class EventShort {
   private String anchorVenueShort = null;
 
   @JsonProperty("ChangedOn")
-  private OffsetDateTime changedOn = null;
+  private String changedOn = null;
 
   @JsonProperty("StartDate")
-  private OffsetDateTime startDate = null;
+  private String startDate = null;
 
   @JsonProperty("EndDate")
-  private OffsetDateTime endDate = null;
+  private String endDate = null;
 
   @JsonProperty("StartDateUTC")
   private Double startDateUTC = null;
@@ -362,7 +358,7 @@ public class EventShort {
     this.anchorVenueShort = anchorVenueShort;
   }
 
-  public EventShort changedOn(OffsetDateTime changedOn) {
+  public EventShort changedOn(String changedOn) {
     this.changedOn = changedOn;
     return this;
   }
@@ -372,15 +368,15 @@ public class EventShort {
    * @return changedOn
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getChangedOn() {
+  public String getChangedOn() {
     return changedOn;
   }
 
-  public void setChangedOn(OffsetDateTime changedOn) {
+  public void setChangedOn(String changedOn) {
     this.changedOn = changedOn;
   }
 
-  public EventShort startDate(OffsetDateTime startDate) {
+  public EventShort startDate(String startDate) {
     this.startDate = startDate;
     return this;
   }
@@ -390,15 +386,15 @@ public class EventShort {
    * @return startDate
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getStartDate() {
+  public String getStartDate() {
     return startDate;
   }
 
-  public void setStartDate(OffsetDateTime startDate) {
+  public void setStartDate(String startDate) {
     this.startDate = startDate;
   }
 
-  public EventShort endDate(OffsetDateTime endDate) {
+  public EventShort endDate(String endDate) {
     this.endDate = endDate;
     return this;
   }
@@ -408,11 +404,11 @@ public class EventShort {
    * @return endDate
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getEndDate() {
+  public String getEndDate() {
     return endDate;
   }
 
-  public void setEndDate(OffsetDateTime endDate) {
+  public void setEndDate(String endDate) {
     this.endDate = endDate;
   }
 

@@ -13,16 +13,12 @@
 
 package it.hackthealps.codemates.staylocalpaylocal.opendata.model;
 
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.RealTimeMeasurements;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * WeatherRealTime
@@ -51,7 +47,7 @@ public class WeatherRealTime {
   private String hs = null;
 
   @JsonProperty("lastUpdated")
-  private OffsetDateTime lastUpdated = null;
+  private String lastUpdated = null;
 
   @JsonProperty("latitude")
   private Double latitude = null;
@@ -227,7 +223,7 @@ public class WeatherRealTime {
     this.hs = hs;
   }
 
-  public WeatherRealTime lastUpdated(OffsetDateTime lastUpdated) {
+  public WeatherRealTime lastUpdated(String lastUpdated) {
     this.lastUpdated = lastUpdated;
     return this;
   }
@@ -237,11 +233,11 @@ public class WeatherRealTime {
    * @return lastUpdated
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getLastUpdated() {
+  public String getLastUpdated() {
     return lastUpdated;
   }
 
-  public void setLastUpdated(OffsetDateTime lastUpdated) {
+  public void setLastUpdated(String lastUpdated) {
     this.lastUpdated = lastUpdated;
   }
 

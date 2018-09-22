@@ -13,16 +13,12 @@
 
 package it.hackthealps.codemates.staylocalpaylocal.opendata.model;
 
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.Penalty;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * CancelPolicy
@@ -36,7 +32,7 @@ public class CancelPolicy {
   private Integer refundable = null;
 
   @JsonProperty("RefundableUntil")
-  private OffsetDateTime refundableUntil = null;
+  private String refundableUntil = null;
 
   @JsonProperty("Description")
   private String description = null;
@@ -80,7 +76,7 @@ public class CancelPolicy {
     this.refundable = refundable;
   }
 
-  public CancelPolicy refundableUntil(OffsetDateTime refundableUntil) {
+  public CancelPolicy refundableUntil(String refundableUntil) {
     this.refundableUntil = refundableUntil;
     return this;
   }
@@ -90,11 +86,11 @@ public class CancelPolicy {
    * @return refundableUntil
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getRefundableUntil() {
+  public String getRefundableUntil() {
     return refundableUntil;
   }
 
-  public void setRefundableUntil(OffsetDateTime refundableUntil) {
+  public void setRefundableUntil(String refundableUntil) {
     this.refundableUntil = refundableUntil;
   }
 

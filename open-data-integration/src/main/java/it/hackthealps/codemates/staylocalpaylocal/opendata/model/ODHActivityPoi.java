@@ -13,33 +13,14 @@
 
 package it.hackthealps.codemates.staylocalpaylocal.opendata.model;
 
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.AdditionalPoiInfos;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.CapacityCeremony;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.CategoryCodes;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.ContactInfos;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.Detail;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.DishRates;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.Facilities;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.GpsInfo;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.GpsTrack;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.ImageGallery;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.LocationInfo;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.OperationSchedule;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.PoiProperty;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.Ratings;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.RelatedContent;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.Webcam;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * ODHActivityPoi
@@ -128,10 +109,10 @@ public class ODHActivityPoi {
   private String poiType = null;
 
   @JsonProperty("FirstImport")
-  private OffsetDateTime firstImport = null;
+  private String firstImport = null;
 
   @JsonProperty("LastChange")
-  private OffsetDateTime lastChange = null;
+  private String lastChange = null;
 
   @JsonProperty("SmgActive")
   private Boolean smgActive = null;
@@ -784,7 +765,7 @@ public class ODHActivityPoi {
     this.poiType = poiType;
   }
 
-  public ODHActivityPoi firstImport(OffsetDateTime firstImport) {
+  public ODHActivityPoi firstImport(String firstImport) {
     this.firstImport = firstImport;
     return this;
   }
@@ -794,15 +775,15 @@ public class ODHActivityPoi {
    * @return firstImport
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getFirstImport() {
+  public String getFirstImport() {
     return firstImport;
   }
 
-  public void setFirstImport(OffsetDateTime firstImport) {
+  public void setFirstImport(String firstImport) {
     this.firstImport = firstImport;
   }
 
-  public ODHActivityPoi lastChange(OffsetDateTime lastChange) {
+  public ODHActivityPoi lastChange(String lastChange) {
     this.lastChange = lastChange;
     return this;
   }
@@ -812,11 +793,11 @@ public class ODHActivityPoi {
    * @return lastChange
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getLastChange() {
+  public String getLastChange() {
     return lastChange;
   }
 
-  public void setLastChange(OffsetDateTime lastChange) {
+  public void setLastChange(String lastChange) {
     this.lastChange = lastChange;
   }
 

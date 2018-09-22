@@ -13,19 +13,12 @@
 
 package it.hackthealps.codemates.staylocalpaylocal.opendata.model;
 
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.Conditions;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.Forecast;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.Mountain;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.Stationdata;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Weather
@@ -36,7 +29,7 @@ public class Weather {
   private Integer id = null;
 
   @JsonProperty("date")
-  private OffsetDateTime date = null;
+  private String date = null;
 
   @JsonProperty("evolutiontitle")
   private String evolutiontitle = null;
@@ -74,7 +67,7 @@ public class Weather {
     this.id = id;
   }
 
-  public Weather date(OffsetDateTime date) {
+  public Weather date(String date) {
     this.date = date;
     return this;
   }
@@ -84,11 +77,11 @@ public class Weather {
    * @return date
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getDate() {
+  public String getDate() {
     return date;
   }
 
-  public void setDate(OffsetDateTime date) {
+  public void setDate(String date) {
     this.date = date;
   }
 

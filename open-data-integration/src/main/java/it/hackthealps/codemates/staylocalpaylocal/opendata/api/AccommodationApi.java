@@ -1,30 +1,29 @@
 package it.hackthealps.codemates.staylocalpaylocal.opendata.api;
 
-import it.hackthealps.codemates.staylocalpaylocal.opendata.invoker.ApiClient;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+import it.hackthealps.codemates.staylocalpaylocal.opendata.invoker.ApiClient;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.AccoRoom;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.AccoTypes;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.Accommodation;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.AccommodationLocalized;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.AccommodationReduced;
+import it.hackthealps.codemates.staylocalpaylocal.opendata.model.AccommodationResultModel;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.MssResponseShort;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.client.RestClientException;
-import org.springframework.web.client.HttpClientErrorException;
-import org.springframework.web.util.UriComponentsBuilder;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Component;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.RestClientException;
+import org.springframework.web.util.UriComponentsBuilder;
 
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-22T03:00:41.182+02:00")
 @Component("it.hackthealps.codemates.staylocalpaylocal.api.AccommodationApi")
@@ -224,7 +223,7 @@ public class AccommodationApi {
      * @return List&lt;Accommodation&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public List<Accommodation> accommodationGetAccommodations(Integer pagenumber, Integer pagesize, String seed, String categoryfilter, String typefilter, String boardfilter, String featurefilter, String themefilter, String badgefilter, String idfilter, String locfilter, String odhtagfilter, String odhactive, String active, String arrival, String departure, String roominfo, String bokfilter, String language, String availabilitycheck, String latitude, String longitude, String radius) throws RestClientException {
+    public AccommodationResultModel accommodationGetAccommodations(Integer pagenumber, Integer pagesize, String seed, String categoryfilter, String typefilter, String boardfilter, String featurefilter, String themefilter, String badgefilter, String idfilter, String locfilter, String odhtagfilter, String odhactive, String active, String arrival, String departure, String roominfo, String bokfilter, String language, String availabilitycheck, String latitude, String longitude, String radius) throws RestClientException {
         Object postBody = null;
         
         String path = UriComponentsBuilder.fromPath("/api/Accommodation").build().toUriString();
@@ -266,7 +265,7 @@ public class AccommodationApi {
 
         String[] authNames = new String[] {  };
 
-        ParameterizedTypeReference<List<Accommodation>> returnType = new ParameterizedTypeReference<List<Accommodation>>() {};
+        ParameterizedTypeReference<AccommodationResultModel> returnType = new ParameterizedTypeReference<AccommodationResultModel>() {};
         return apiClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
     }
     /**
@@ -414,7 +413,7 @@ public class AccommodationApi {
      * @return List&lt;Accommodation&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public List<Accommodation> accommodationGetAllAccommodationsChanged(Integer pagenumber, Integer pagesize, String seed, String updatefrom) throws RestClientException {
+    public AccommodationResultModel accommodationGetAllAccommodationsChanged(Integer pagenumber, Integer pagesize, String seed, String updatefrom) throws RestClientException {
         Object postBody = null;
         
         String path = UriComponentsBuilder.fromPath("/api/AccommodationChanged").build().toUriString();
@@ -437,7 +436,7 @@ public class AccommodationApi {
 
         String[] authNames = new String[] {  };
 
-        ParameterizedTypeReference<List<Accommodation>> returnType = new ParameterizedTypeReference<List<Accommodation>>() {};
+        ParameterizedTypeReference<AccommodationResultModel> returnType = new ParameterizedTypeReference<AccommodationResultModel>() {};
         return apiClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
     }
     /**
@@ -513,7 +512,7 @@ public class AccommodationApi {
      * @return List&lt;Accommodation&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public List<Accommodation> accommodationPostAvailableAccommodations(String idfilter, String language, String boardfilter, String arrival, String departure, String roominfo, String bokfilter, String source, String detail) throws RestClientException {
+    public AccommodationResultModel accommodationPostAvailableAccommodations(String idfilter, String language, String boardfilter, String arrival, String departure, String roominfo, String bokfilter, String source, String detail) throws RestClientException {
         Object postBody = idfilter;
         
         // verify the required parameter 'idfilter' is set
@@ -547,7 +546,7 @@ public class AccommodationApi {
 
         String[] authNames = new String[] {  };
 
-        ParameterizedTypeReference<List<Accommodation>> returnType = new ParameterizedTypeReference<List<Accommodation>>() {};
+        ParameterizedTypeReference<AccommodationResultModel> returnType = new ParameterizedTypeReference<AccommodationResultModel>() {};
         return apiClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
     }
     /**

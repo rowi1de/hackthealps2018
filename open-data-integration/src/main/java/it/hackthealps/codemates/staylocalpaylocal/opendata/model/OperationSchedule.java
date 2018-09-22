@@ -13,18 +13,14 @@
 
 package it.hackthealps.codemates.staylocalpaylocal.opendata.model;
 
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.OperationScheduleTime;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * OperationSchedule
@@ -35,10 +31,10 @@ public class OperationSchedule {
   private Map<String, String> operationscheduleName = null;
 
   @JsonProperty("Start")
-  private OffsetDateTime start = null;
+  private String start = null;
 
   @JsonProperty("Stop")
-  private OffsetDateTime stop = null;
+  private String stop = null;
 
   @JsonProperty("Type")
   private String type = null;
@@ -75,7 +71,7 @@ public class OperationSchedule {
     this.operationscheduleName = operationscheduleName;
   }
 
-  public OperationSchedule start(OffsetDateTime start) {
+  public OperationSchedule start(String start) {
     this.start = start;
     return this;
   }
@@ -85,15 +81,15 @@ public class OperationSchedule {
    * @return start
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getStart() {
+  public String getStart() {
     return start;
   }
 
-  public void setStart(OffsetDateTime start) {
+  public void setStart(String start) {
     this.start = start;
   }
 
-  public OperationSchedule stop(OffsetDateTime stop) {
+  public OperationSchedule stop(String stop) {
     this.stop = stop;
     return this;
   }
@@ -103,11 +99,11 @@ public class OperationSchedule {
    * @return stop
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getStop() {
+  public String getStop() {
     return stop;
   }
 
-  public void setStop(OffsetDateTime stop) {
+  public void setStop(String stop) {
     this.stop = stop;
   }
 

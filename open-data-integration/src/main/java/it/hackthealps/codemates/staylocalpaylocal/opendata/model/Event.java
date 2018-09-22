@@ -13,26 +13,14 @@
 
 package it.hackthealps.codemates.staylocalpaylocal.opendata.model;
 
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.ContactInfos;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.Detail;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.EventAdditionalInfos;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.EventDate;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.EventPrice;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.EventPublisher;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.ImageGallery;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.LocationInfo;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.Topic;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Event
@@ -49,16 +37,16 @@ public class Event {
   private String shortname = null;
 
   @JsonProperty("DateBegin")
-  private OffsetDateTime dateBegin = null;
+  private String dateBegin = null;
 
   @JsonProperty("DateEnd")
-  private OffsetDateTime dateEnd = null;
+  private String dateEnd = null;
 
   @JsonProperty("FirstImport")
-  private OffsetDateTime firstImport = null;
+  private String firstImport = null;
 
   @JsonProperty("LastChange")
-  private OffsetDateTime lastChange = null;
+  private String lastChange = null;
 
   @JsonProperty("Gpstype")
   private String gpstype = null;
@@ -195,7 +183,7 @@ public class Event {
     this.shortname = shortname;
   }
 
-  public Event dateBegin(OffsetDateTime dateBegin) {
+  public Event dateBegin(String dateBegin) {
     this.dateBegin = dateBegin;
     return this;
   }
@@ -205,15 +193,15 @@ public class Event {
    * @return dateBegin
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getDateBegin() {
+  public String getDateBegin() {
     return dateBegin;
   }
 
-  public void setDateBegin(OffsetDateTime dateBegin) {
+  public void setDateBegin(String dateBegin) {
     this.dateBegin = dateBegin;
   }
 
-  public Event dateEnd(OffsetDateTime dateEnd) {
+  public Event dateEnd(String dateEnd) {
     this.dateEnd = dateEnd;
     return this;
   }
@@ -223,15 +211,15 @@ public class Event {
    * @return dateEnd
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getDateEnd() {
+  public String getDateEnd() {
     return dateEnd;
   }
 
-  public void setDateEnd(OffsetDateTime dateEnd) {
+  public void setDateEnd(String dateEnd) {
     this.dateEnd = dateEnd;
   }
 
-  public Event firstImport(OffsetDateTime firstImport) {
+  public Event firstImport(String firstImport) {
     this.firstImport = firstImport;
     return this;
   }
@@ -241,15 +229,15 @@ public class Event {
    * @return firstImport
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getFirstImport() {
+  public String getFirstImport() {
     return firstImport;
   }
 
-  public void setFirstImport(OffsetDateTime firstImport) {
+  public void setFirstImport(String firstImport) {
     this.firstImport = firstImport;
   }
 
-  public Event lastChange(OffsetDateTime lastChange) {
+  public Event lastChange(String lastChange) {
     this.lastChange = lastChange;
     return this;
   }
@@ -259,11 +247,11 @@ public class Event {
    * @return lastChange
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getLastChange() {
+  public String getLastChange() {
     return lastChange;
   }
 
-  public void setLastChange(OffsetDateTime lastChange) {
+  public void setLastChange(String lastChange) {
     this.lastChange = lastChange;
   }
 

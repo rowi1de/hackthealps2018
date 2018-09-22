@@ -13,23 +13,12 @@
 
 package it.hackthealps.codemates.staylocalpaylocal.opendata.model;
 
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.ContactInfos;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.Detail;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.EventAdditionalInfos;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.EventDate;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.EventPrice;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.EventPublisher;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.ImageGalleryLocalized;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.LocationInfoLocalized;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * EventLocalized
@@ -46,10 +35,10 @@ public class EventLocalized {
   private String shortname = null;
 
   @JsonProperty("DateBegin")
-  private OffsetDateTime dateBegin = null;
+  private String dateBegin = null;
 
   @JsonProperty("DateEnd")
-  private OffsetDateTime dateEnd = null;
+  private String dateEnd = null;
 
   @JsonProperty("Gpstype")
   private String gpstype = null;
@@ -180,7 +169,7 @@ public class EventLocalized {
     this.shortname = shortname;
   }
 
-  public EventLocalized dateBegin(OffsetDateTime dateBegin) {
+  public EventLocalized dateBegin(String dateBegin) {
     this.dateBegin = dateBegin;
     return this;
   }
@@ -190,15 +179,15 @@ public class EventLocalized {
    * @return dateBegin
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getDateBegin() {
+  public String getDateBegin() {
     return dateBegin;
   }
 
-  public void setDateBegin(OffsetDateTime dateBegin) {
+  public void setDateBegin(String dateBegin) {
     this.dateBegin = dateBegin;
   }
 
-  public EventLocalized dateEnd(OffsetDateTime dateEnd) {
+  public EventLocalized dateEnd(String dateEnd) {
     this.dateEnd = dateEnd;
     return this;
   }
@@ -208,11 +197,11 @@ public class EventLocalized {
    * @return dateEnd
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getDateEnd() {
+  public String getDateEnd() {
     return dateEnd;
   }
 
-  public void setDateEnd(OffsetDateTime dateEnd) {
+  public void setDateEnd(String dateEnd) {
     this.dateEnd = dateEnd;
   }
 

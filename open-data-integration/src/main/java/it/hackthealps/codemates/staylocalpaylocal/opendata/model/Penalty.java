@@ -14,12 +14,9 @@
 package it.hackthealps.codemates.staylocalpaylocal.opendata.model;
 
 import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
 
 /**
  * Penalty
@@ -30,7 +27,7 @@ public class Penalty {
   private Integer percent = null;
 
   @JsonProperty("Datefrom")
-  private OffsetDateTime datefrom = null;
+  private String datefrom = null;
 
   @JsonProperty("Daysarrival")
   private Integer daysarrival = null;
@@ -53,7 +50,7 @@ public class Penalty {
     this.percent = percent;
   }
 
-  public Penalty datefrom(OffsetDateTime datefrom) {
+  public Penalty datefrom(String datefrom) {
     this.datefrom = datefrom;
     return this;
   }
@@ -63,11 +60,11 @@ public class Penalty {
    * @return datefrom
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getDatefrom() {
+  public String getDatefrom() {
     return datefrom;
   }
 
-  public void setDatefrom(OffsetDateTime datefrom) {
+  public void setDatefrom(String datefrom) {
     this.datefrom = datefrom;
   }
 

@@ -13,17 +13,14 @@
 
 package it.hackthealps.codemates.staylocalpaylocal.opendata.model;
 
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * EventShortByRoom
@@ -43,10 +40,10 @@ public class EventShortByRoom {
   private String subtitle = null;
 
   @JsonProperty("RoomStartDate")
-  private OffsetDateTime roomStartDate = null;
+  private String roomStartDate = null;
 
   @JsonProperty("RoomEndDate")
-  private OffsetDateTime roomEndDate = null;
+  private String roomEndDate = null;
 
   @JsonProperty("RoomStartDateUTC")
   private Double roomStartDateUTC = null;
@@ -76,10 +73,10 @@ public class EventShortByRoom {
   private String eventAnchorVenueShort = null;
 
   @JsonProperty("EventStartDate")
-  private OffsetDateTime eventStartDate = null;
+  private String eventStartDate = null;
 
   @JsonProperty("EventEndDate")
-  private OffsetDateTime eventEndDate = null;
+  private String eventEndDate = null;
 
   @JsonProperty("EventStartDateUTC")
   private Double eventStartDateUTC = null;
@@ -182,7 +179,7 @@ public class EventShortByRoom {
     this.subtitle = subtitle;
   }
 
-  public EventShortByRoom roomStartDate(OffsetDateTime roomStartDate) {
+  public EventShortByRoom roomStartDate(String roomStartDate) {
     this.roomStartDate = roomStartDate;
     return this;
   }
@@ -192,15 +189,15 @@ public class EventShortByRoom {
    * @return roomStartDate
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getRoomStartDate() {
+  public String getRoomStartDate() {
     return roomStartDate;
   }
 
-  public void setRoomStartDate(OffsetDateTime roomStartDate) {
+  public void setRoomStartDate(String roomStartDate) {
     this.roomStartDate = roomStartDate;
   }
 
-  public EventShortByRoom roomEndDate(OffsetDateTime roomEndDate) {
+  public EventShortByRoom roomEndDate(String roomEndDate) {
     this.roomEndDate = roomEndDate;
     return this;
   }
@@ -210,11 +207,11 @@ public class EventShortByRoom {
    * @return roomEndDate
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getRoomEndDate() {
+  public String getRoomEndDate() {
     return roomEndDate;
   }
 
-  public void setRoomEndDate(OffsetDateTime roomEndDate) {
+  public void setRoomEndDate(String roomEndDate) {
     this.roomEndDate = roomEndDate;
   }
 
@@ -388,7 +385,7 @@ public class EventShortByRoom {
     this.eventAnchorVenueShort = eventAnchorVenueShort;
   }
 
-  public EventShortByRoom eventStartDate(OffsetDateTime eventStartDate) {
+  public EventShortByRoom eventStartDate(String eventStartDate) {
     this.eventStartDate = eventStartDate;
     return this;
   }
@@ -398,15 +395,15 @@ public class EventShortByRoom {
    * @return eventStartDate
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getEventStartDate() {
+  public String getEventStartDate() {
     return eventStartDate;
   }
 
-  public void setEventStartDate(OffsetDateTime eventStartDate) {
+  public void setEventStartDate(String eventStartDate) {
     this.eventStartDate = eventStartDate;
   }
 
-  public EventShortByRoom eventEndDate(OffsetDateTime eventEndDate) {
+  public EventShortByRoom eventEndDate(String eventEndDate) {
     this.eventEndDate = eventEndDate;
     return this;
   }
@@ -416,11 +413,11 @@ public class EventShortByRoom {
    * @return eventEndDate
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getEventEndDate() {
+  public String getEventEndDate() {
     return eventEndDate;
   }
 
-  public void setEventEndDate(OffsetDateTime eventEndDate) {
+  public void setEventEndDate(String eventEndDate) {
     this.eventEndDate = eventEndDate;
   }
 

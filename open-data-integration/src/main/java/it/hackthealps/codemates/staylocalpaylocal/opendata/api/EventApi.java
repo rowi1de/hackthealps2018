@@ -5,6 +5,7 @@ import it.hackthealps.codemates.staylocalpaylocal.opendata.invoker.ApiClient;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.Event;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.EventLocalized;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.EventReduced;
+import it.hackthealps.codemates.staylocalpaylocal.opendata.model.EventResult;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.EventTypes;
 
 import java.util.HashMap;
@@ -85,7 +86,7 @@ public class EventApi {
      * @return List&lt;Event&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public List<Event> eventGetAllEventsChanged(Integer pagenumber, Integer pagesize, String seed, String updatefrom) throws RestClientException {
+    public EventResult eventGetAllEventsChanged(Integer pagenumber, Integer pagesize, String seed, String updatefrom) throws RestClientException {
         Object postBody = null;
         
         String path = UriComponentsBuilder.fromPath("/api/EventChanged").build().toUriString();
@@ -108,7 +109,7 @@ public class EventApi {
 
         String[] authNames = new String[] {  };
 
-        ParameterizedTypeReference<List<Event>> returnType = new ParameterizedTypeReference<List<Event>>() {};
+        ParameterizedTypeReference<EventResult> returnType = new ParameterizedTypeReference<EventResult>() {};
         return apiClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
     }
     /**
@@ -212,7 +213,7 @@ public class EventApi {
      * @return List&lt;Event&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public List<Event> eventGetEvents(Integer pagenumber, Integer pagesize, String idlist, String locfilter, String rancfilter, String typefilter, String topicfilter, String orgfilter, String odhtagfilter, String active, String odhactive, String begindate, String enddate, String seed, String latitude, String longitude, String radius) throws RestClientException {
+    public EventResult eventGetEvents(Integer pagenumber, Integer pagesize, String idlist, String locfilter, String rancfilter, String typefilter, String topicfilter, String orgfilter, String odhtagfilter, String active, String odhactive, String begindate, String enddate, String seed, String latitude, String longitude, String radius) throws RestClientException {
         Object postBody = null;
         
         String path = UriComponentsBuilder.fromPath("/api/Event").build().toUriString();
@@ -248,7 +249,7 @@ public class EventApi {
 
         String[] authNames = new String[] {  };
 
-        ParameterizedTypeReference<List<Event>> returnType = new ParameterizedTypeReference<List<Event>>() {};
+        ParameterizedTypeReference<EventResult> returnType = new ParameterizedTypeReference<EventResult>() {};
         return apiClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
     }
     /**

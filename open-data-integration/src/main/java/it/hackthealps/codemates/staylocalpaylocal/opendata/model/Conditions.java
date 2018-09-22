@@ -14,12 +14,9 @@
 package it.hackthealps.codemates.staylocalpaylocal.opendata.model;
 
 import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
 
 /**
  * Conditions
@@ -27,7 +24,7 @@ import java.time.OffsetDateTime;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-22T03:00:41.182+02:00")
 public class Conditions {
   @JsonProperty("date")
-  private OffsetDateTime date = null;
+  private String date = null;
 
   @JsonProperty("Title")
   private String title = null;
@@ -44,7 +41,7 @@ public class Conditions {
   @JsonProperty("Weatherdesc")
   private String weatherdesc = null;
 
-  public Conditions date(OffsetDateTime date) {
+  public Conditions date(String date) {
     this.date = date;
     return this;
   }
@@ -54,11 +51,11 @@ public class Conditions {
    * @return date
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getDate() {
+  public String getDate() {
     return date;
   }
 
-  public void setDate(OffsetDateTime date) {
+  public void setDate(String date) {
     this.date = date;
   }
 

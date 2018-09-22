@@ -14,12 +14,9 @@
 package it.hackthealps.codemates.staylocalpaylocal.opendata.model;
 
 import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
 
 /**
  * Forecast
@@ -27,7 +24,7 @@ import java.time.OffsetDateTime;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-22T03:00:41.182+02:00")
 public class Forecast {
   @JsonProperty("date")
-  private OffsetDateTime date = null;
+  private String date = null;
 
   @JsonProperty("TempMaxmax")
   private Integer tempMaxmax = null;
@@ -53,7 +50,7 @@ public class Forecast {
   @JsonProperty("Reliability")
   private String reliability = null;
 
-  public Forecast date(OffsetDateTime date) {
+  public Forecast date(String date) {
     this.date = date;
     return this;
   }
@@ -63,11 +60,11 @@ public class Forecast {
    * @return date
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getDate() {
+  public String getDate() {
     return date;
   }
 
-  public void setDate(OffsetDateTime date) {
+  public void setDate(String date) {
     this.date = date;
   }
 

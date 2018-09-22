@@ -13,24 +13,12 @@
 
 package it.hackthealps.codemates.staylocalpaylocal.opendata.model;
 
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.CapacityCeremony;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.CategoryCodes;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.ContactInfos;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.Detail;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.DishRates;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.Facilities;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.ImageGalleryLocalized;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.LocationInfoLocalized;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.OperationSchedule;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * GastronomyLocalized
@@ -53,10 +41,10 @@ public class GastronomyLocalized {
   private String districtId = null;
 
   @JsonProperty("FirstImport")
-  private OffsetDateTime firstImport = null;
+  private String firstImport = null;
 
   @JsonProperty("LastChange")
-  private OffsetDateTime lastChange = null;
+  private String lastChange = null;
 
   @JsonProperty("Gpstype")
   private String gpstype = null;
@@ -205,7 +193,7 @@ public class GastronomyLocalized {
     this.districtId = districtId;
   }
 
-  public GastronomyLocalized firstImport(OffsetDateTime firstImport) {
+  public GastronomyLocalized firstImport(String firstImport) {
     this.firstImport = firstImport;
     return this;
   }
@@ -215,15 +203,15 @@ public class GastronomyLocalized {
    * @return firstImport
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getFirstImport() {
+  public String getFirstImport() {
     return firstImport;
   }
 
-  public void setFirstImport(OffsetDateTime firstImport) {
+  public void setFirstImport(String firstImport) {
     this.firstImport = firstImport;
   }
 
-  public GastronomyLocalized lastChange(OffsetDateTime lastChange) {
+  public GastronomyLocalized lastChange(String lastChange) {
     this.lastChange = lastChange;
     return this;
   }
@@ -233,11 +221,11 @@ public class GastronomyLocalized {
    * @return lastChange
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getLastChange() {
+  public String getLastChange() {
     return lastChange;
   }
 
-  public void setLastChange(OffsetDateTime lastChange) {
+  public void setLastChange(String lastChange) {
     this.lastChange = lastChange;
   }
 

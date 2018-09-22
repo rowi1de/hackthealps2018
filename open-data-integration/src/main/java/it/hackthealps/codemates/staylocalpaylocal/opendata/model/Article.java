@@ -13,25 +13,14 @@
 
 package it.hackthealps.codemates.staylocalpaylocal.opendata.model;
 
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.AdditionalArticleInfos;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.ArticleLinkInfo;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.ContactInfos;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.Detail;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.GpsInfo;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.GpsTrack;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.ImageGallery;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.OperationSchedule;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Article
@@ -57,19 +46,19 @@ public class Article {
   private String subType = null;
 
   @JsonProperty("FirstImport")
-  private OffsetDateTime firstImport = null;
+  private String firstImport = null;
 
   @JsonProperty("LastChange")
-  private OffsetDateTime lastChange = null;
+  private String lastChange = null;
 
   @JsonProperty("SmgActive")
   private Boolean smgActive = null;
 
   @JsonProperty("ArticleDate")
-  private OffsetDateTime articleDate = null;
+  private String articleDate = null;
 
   @JsonProperty("ArticleDateTo")
-  private OffsetDateTime articleDateTo = null;
+  private String articleDateTo = null;
 
   @JsonProperty("OperationSchedule")
   private List<OperationSchedule> operationSchedule = null;
@@ -209,7 +198,7 @@ public class Article {
     this.subType = subType;
   }
 
-  public Article firstImport(OffsetDateTime firstImport) {
+  public Article firstImport(String firstImport) {
     this.firstImport = firstImport;
     return this;
   }
@@ -219,15 +208,15 @@ public class Article {
    * @return firstImport
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getFirstImport() {
+  public String getFirstImport() {
     return firstImport;
   }
 
-  public void setFirstImport(OffsetDateTime firstImport) {
+  public void setFirstImport(String firstImport) {
     this.firstImport = firstImport;
   }
 
-  public Article lastChange(OffsetDateTime lastChange) {
+  public Article lastChange(String lastChange) {
     this.lastChange = lastChange;
     return this;
   }
@@ -237,11 +226,11 @@ public class Article {
    * @return lastChange
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getLastChange() {
+  public String getLastChange() {
     return lastChange;
   }
 
-  public void setLastChange(OffsetDateTime lastChange) {
+  public void setLastChange(String lastChange) {
     this.lastChange = lastChange;
   }
 
@@ -263,7 +252,7 @@ public class Article {
     this.smgActive = smgActive;
   }
 
-  public Article articleDate(OffsetDateTime articleDate) {
+  public Article articleDate(String articleDate) {
     this.articleDate = articleDate;
     return this;
   }
@@ -273,15 +262,15 @@ public class Article {
    * @return articleDate
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getArticleDate() {
+  public String getArticleDate() {
     return articleDate;
   }
 
-  public void setArticleDate(OffsetDateTime articleDate) {
+  public void setArticleDate(String articleDate) {
     this.articleDate = articleDate;
   }
 
-  public Article articleDateTo(OffsetDateTime articleDateTo) {
+  public Article articleDateTo(String articleDateTo) {
     this.articleDateTo = articleDateTo;
     return this;
   }
@@ -291,11 +280,11 @@ public class Article {
    * @return articleDateTo
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getArticleDateTo() {
+  public String getArticleDateTo() {
     return articleDateTo;
   }
 
-  public void setArticleDateTo(OffsetDateTime articleDateTo) {
+  public void setArticleDateTo(String articleDateTo) {
     this.articleDateTo = articleDateTo;
   }
 

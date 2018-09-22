@@ -13,16 +13,12 @@
 
 package it.hackthealps.codemates.staylocalpaylocal.opendata.model;
 
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.MeasuringpointReduced;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * SnowReportBaseData
@@ -42,7 +38,7 @@ public class SnowReportBaseData {
   private String areaname = null;
 
   @JsonProperty("LastUpdate")
-  private OffsetDateTime lastUpdate = null;
+  private String lastUpdate = null;
 
   @JsonProperty("lang")
   private String lang = null;
@@ -215,7 +211,7 @@ public class SnowReportBaseData {
     this.areaname = areaname;
   }
 
-  public SnowReportBaseData lastUpdate(OffsetDateTime lastUpdate) {
+  public SnowReportBaseData lastUpdate(String lastUpdate) {
     this.lastUpdate = lastUpdate;
     return this;
   }
@@ -225,11 +221,11 @@ public class SnowReportBaseData {
    * @return lastUpdate
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getLastUpdate() {
+  public String getLastUpdate() {
     return lastUpdate;
   }
 
-  public void setLastUpdate(OffsetDateTime lastUpdate) {
+  public void setLastUpdate(String lastUpdate) {
     this.lastUpdate = lastUpdate;
   }
 

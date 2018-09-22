@@ -13,16 +13,12 @@
 
 package it.hackthealps.codemates.staylocalpaylocal.opendata.model;
 
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.WeatherObservation;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * MeasuringpointReduced
@@ -33,7 +29,7 @@ public class MeasuringpointReduced {
   private String id = null;
 
   @JsonProperty("LastUpdate")
-  private OffsetDateTime lastUpdate = null;
+  private String lastUpdate = null;
 
   @JsonProperty("Shortname")
   private String shortname = null;
@@ -48,7 +44,7 @@ public class MeasuringpointReduced {
   private String temperature = null;
 
   @JsonProperty("LastSnowDate")
-  private OffsetDateTime lastSnowDate = null;
+  private String lastSnowDate = null;
 
   @JsonProperty("WeatherObservation")
   private List<WeatherObservation> weatherObservation = null;
@@ -71,7 +67,7 @@ public class MeasuringpointReduced {
     this.id = id;
   }
 
-  public MeasuringpointReduced lastUpdate(OffsetDateTime lastUpdate) {
+  public MeasuringpointReduced lastUpdate(String lastUpdate) {
     this.lastUpdate = lastUpdate;
     return this;
   }
@@ -81,11 +77,11 @@ public class MeasuringpointReduced {
    * @return lastUpdate
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getLastUpdate() {
+  public String getLastUpdate() {
     return lastUpdate;
   }
 
-  public void setLastUpdate(OffsetDateTime lastUpdate) {
+  public void setLastUpdate(String lastUpdate) {
     this.lastUpdate = lastUpdate;
   }
 
@@ -161,7 +157,7 @@ public class MeasuringpointReduced {
     this.temperature = temperature;
   }
 
-  public MeasuringpointReduced lastSnowDate(OffsetDateTime lastSnowDate) {
+  public MeasuringpointReduced lastSnowDate(String lastSnowDate) {
     this.lastSnowDate = lastSnowDate;
     return this;
   }
@@ -171,11 +167,11 @@ public class MeasuringpointReduced {
    * @return lastSnowDate
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getLastSnowDate() {
+  public String getLastSnowDate() {
     return lastSnowDate;
   }
 
-  public void setLastSnowDate(OffsetDateTime lastSnowDate) {
+  public void setLastSnowDate(String lastSnowDate) {
     this.lastSnowDate = lastSnowDate;
   }
 

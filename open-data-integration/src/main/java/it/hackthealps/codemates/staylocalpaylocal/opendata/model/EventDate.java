@@ -14,12 +14,9 @@
 package it.hackthealps.codemates.staylocalpaylocal.opendata.model;
 
 import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
 
 /**
  * EventDate
@@ -27,10 +24,10 @@ import java.time.OffsetDateTime;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-22T03:00:41.182+02:00")
 public class EventDate {
   @JsonProperty("From")
-  private OffsetDateTime from = null;
+  private String from = null;
 
   @JsonProperty("To")
-  private OffsetDateTime to = null;
+  private String to = null;
 
   @JsonProperty("SingleDays")
   private Boolean singleDays = null;
@@ -59,7 +56,7 @@ public class EventDate {
   @JsonProperty("Entrance")
   private String entrance = null;
 
-  public EventDate from(OffsetDateTime from) {
+  public EventDate from(String from) {
     this.from = from;
     return this;
   }
@@ -69,15 +66,15 @@ public class EventDate {
    * @return from
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getFrom() {
+  public String getFrom() {
     return from;
   }
 
-  public void setFrom(OffsetDateTime from) {
+  public void setFrom(String from) {
     this.from = from;
   }
 
-  public EventDate to(OffsetDateTime to) {
+  public EventDate to(String to) {
     this.to = to;
     return this;
   }
@@ -87,11 +84,11 @@ public class EventDate {
    * @return to
   **/
   @ApiModelProperty(value = "")
-  public OffsetDateTime getTo() {
+  public String getTo() {
     return to;
   }
 
-  public void setTo(OffsetDateTime to) {
+  public void setTo(String to) {
     this.to = to;
   }
 
