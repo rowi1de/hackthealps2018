@@ -21,7 +21,7 @@ public class ScoreService {
 
     private static final List<String> GASTRONOMY_FEATURES = asList("Südtiroler Spezialitäten", "Italienische Küche");
     private static final List<String> ACCOMODATION_FEATURES = asList("Fruit growing farm", "Residence bar");
-    private static final List<String> EVENT_FEATIURES = asList("Fruit growing farm");
+    private static final List<String> EVENT_FEATURES = asList("79CBD66151C911D18F1400A02427D15E");
 
     public ScoreModel score(Gastronomy gastronomy) {
         List<String> scoreFeatures = gastronomy.getFacilities()
@@ -45,7 +45,7 @@ public class ScoreService {
     public ScoreModel score(Event event) {
         List<String> scoreFeatures = event.getDistrictIds()
                 .stream()
-                .filter(EVENT_FEATIURES::contains)
+                .filter(EVENT_FEATURES::contains)
                 .collect(toList());
         return getScoreModel(scoreFeatures);
     }
