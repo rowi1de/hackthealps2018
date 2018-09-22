@@ -2,8 +2,7 @@ package com.hackthealps.paylocal.controller;
 
 import com.hackthealps.paylocal.api.ProfileApi;
 import com.hackthealps.paylocal.model.UserProfile;
-import com.hackthealps.paylocal_reader.api.ProfileApi;
-import com.hackthealps.paylocal_reader.model.UserProfile;
+
 
 import retrofit2.Call;
 import retrofit2.Callback;
