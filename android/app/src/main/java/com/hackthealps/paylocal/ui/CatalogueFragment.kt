@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.hackthealps.paylocal.R
+import com.hackthealps.paylocal.controller.Controller
 import com.hackthealps.paylocal.model.Category
 import kotlinx.android.synthetic.main.fragment_catalogue.view.*
 
@@ -22,7 +23,7 @@ class CatalogueFragment : Fragment() {
         recyclerView.adapter = CatalogueAdapter(context!!, getCategoryList(), object: CatalogueAdapter.ItemClickListener {
             override fun onItemClick(category: Category) {
                 Log.d("CatalogueFragment", category.name)
-                // TODO open new screen with product lists
+                Controller().start()
             }
         })
 
