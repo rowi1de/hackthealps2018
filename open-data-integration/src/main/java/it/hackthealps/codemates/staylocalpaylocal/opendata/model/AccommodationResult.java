@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class AccommodationResultModel {
+public class AccommodationResult {
 
     public List<Accommodation> getItems() {
         return items;

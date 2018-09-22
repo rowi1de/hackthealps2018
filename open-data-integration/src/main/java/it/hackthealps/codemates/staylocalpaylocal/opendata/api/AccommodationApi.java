@@ -10,7 +10,7 @@ import it.hackthealps.codemates.staylocalpaylocal.opendata.model.AccoTypes;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.Accommodation;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.AccommodationLocalized;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.AccommodationReduced;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.AccommodationResultModel;
+import it.hackthealps.codemates.staylocalpaylocal.opendata.model.AccommodationResult;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.MssResponseShort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
@@ -223,7 +223,11 @@ public class AccommodationApi {
      * @return List&lt;Accommodation&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public AccommodationResultModel accommodationGetAccommodations(Integer pagenumber, Integer pagesize, String seed, String categoryfilter, String typefilter, String boardfilter, String featurefilter, String themefilter, String badgefilter, String idfilter, String locfilter, String odhtagfilter, String odhactive, String active, String arrival, String departure, String roominfo, String bokfilter, String language, String availabilitycheck, String latitude, String longitude, String radius) throws RestClientException {
+    public AccommodationResult accommodationGetAccommodations(Integer pagenumber, Integer pagesize, String seed,
+            String categoryfilter, String typefilter, String boardfilter, String featurefilter, String themefilter,
+            String badgefilter, String idfilter, String locfilter, String odhtagfilter, String odhactive, String active,
+            String arrival, String departure, String roominfo, String bokfilter, String language,
+            String availabilitycheck, String latitude, String longitude, String radius) throws RestClientException {
         Object postBody = null;
         
         String path = UriComponentsBuilder.fromPath("/api/Accommodation").build().toUriString();
@@ -265,7 +269,8 @@ public class AccommodationApi {
 
         String[] authNames = new String[] {  };
 
-        ParameterizedTypeReference<AccommodationResultModel> returnType = new ParameterizedTypeReference<AccommodationResultModel>() {};
+        ParameterizedTypeReference<AccommodationResult> returnType = new ParameterizedTypeReference<AccommodationResult>() {
+        };
         return apiClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
     }
     /**
@@ -413,7 +418,8 @@ public class AccommodationApi {
      * @return List&lt;Accommodation&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public AccommodationResultModel accommodationGetAllAccommodationsChanged(Integer pagenumber, Integer pagesize, String seed, String updatefrom) throws RestClientException {
+    public AccommodationResult accommodationGetAllAccommodationsChanged(Integer pagenumber, Integer pagesize,
+            String seed, String updatefrom) throws RestClientException {
         Object postBody = null;
         
         String path = UriComponentsBuilder.fromPath("/api/AccommodationChanged").build().toUriString();
@@ -436,7 +442,8 @@ public class AccommodationApi {
 
         String[] authNames = new String[] {  };
 
-        ParameterizedTypeReference<AccommodationResultModel> returnType = new ParameterizedTypeReference<AccommodationResultModel>() {};
+        ParameterizedTypeReference<AccommodationResult> returnType = new ParameterizedTypeReference<AccommodationResult>() {
+        };
         return apiClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
     }
     /**
@@ -512,7 +519,9 @@ public class AccommodationApi {
      * @return List&lt;Accommodation&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public AccommodationResultModel accommodationPostAvailableAccommodations(String idfilter, String language, String boardfilter, String arrival, String departure, String roominfo, String bokfilter, String source, String detail) throws RestClientException {
+    public AccommodationResult accommodationPostAvailableAccommodations(String idfilter, String language,
+            String boardfilter, String arrival, String departure, String roominfo, String bokfilter, String source,
+            String detail) throws RestClientException {
         Object postBody = idfilter;
         
         // verify the required parameter 'idfilter' is set
@@ -546,7 +555,8 @@ public class AccommodationApi {
 
         String[] authNames = new String[] {  };
 
-        ParameterizedTypeReference<AccommodationResultModel> returnType = new ParameterizedTypeReference<AccommodationResultModel>() {};
+        ParameterizedTypeReference<AccommodationResult> returnType = new ParameterizedTypeReference<AccommodationResult>() {
+        };
         return apiClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
     }
     /**
