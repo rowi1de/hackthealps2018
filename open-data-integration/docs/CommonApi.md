@@ -1310,7 +1310,7 @@ GET TourismAssociation Localized List
 ```java
 // Import classes:
 //import it.hackthealps.codemates.staylocalpaylocal.invoker.ApiException;
-//import it.hackthealps.codemates.staylocalpaylocal.api.CommonApi;
+CommonApi
 
 
 CommonApi apiInstance = new CommonApi();
