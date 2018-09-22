@@ -1,12 +1,12 @@
-package it.hackthealps.codemates.staylocalpaylocal.controller.api;
+package it.hackthealps.codemates.staylocalpaylocal.payment.controller.api;
 
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import it.hackthealps.codemates.staylocalpaylocal.common.NoUserException;
-import it.hackthealps.codemates.staylocalpaylocal.dto.LoginDTO;
-import it.hackthealps.codemates.staylocalpaylocal.dto.TokenDTO;
+import it.hackthealps.codemates.staylocalpaylocal.payment.dto.LoginDTO;
+import it.hackthealps.codemates.staylocalpaylocal.payment.dto.TokenDTO;
 
 public interface ILoginController {
 

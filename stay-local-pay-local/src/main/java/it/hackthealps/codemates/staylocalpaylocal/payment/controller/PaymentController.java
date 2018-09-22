@@ -1,4 +1,4 @@
-package it.hackthealps.codemates.staylocalpaylocal.controller;
+package it.hackthealps.codemates.staylocalpaylocal.payment.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 import it.hackthealps.codemates.staylocalpaylocal.common.NoProductException;
 import it.hackthealps.codemates.staylocalpaylocal.common.NoShopException;
 import it.hackthealps.codemates.staylocalpaylocal.common.NoUserException;
-import it.hackthealps.codemates.staylocalpaylocal.controller.api.IPaymentController;
-import it.hackthealps.codemates.staylocalpaylocal.dto.PaymentDTO;
-import it.hackthealps.codemates.staylocalpaylocal.dto.RewardDTO;
-import it.hackthealps.codemates.staylocalpaylocal.service.PaymentService;
+import it.hackthealps.codemates.staylocalpaylocal.payment.controller.api.IPaymentController;
+import it.hackthealps.codemates.staylocalpaylocal.payment.dto.PaymentDTO;
+import it.hackthealps.codemates.staylocalpaylocal.payment.dto.RewardDTO;
+import it.hackthealps.codemates.staylocalpaylocal.payment.service.PaymentService;
 
 @RestController
 public class PaymentController implements IPaymentController {

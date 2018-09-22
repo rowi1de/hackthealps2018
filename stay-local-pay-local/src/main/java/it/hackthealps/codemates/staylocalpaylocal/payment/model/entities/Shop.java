@@ -1,4 +1,4 @@
-package it.hackthealps.codemates.staylocalpaylocal.model.enitites;
+package it.hackthealps.codemates.staylocalpaylocal.payment.model.entities;
 
 import java.util.List;
 

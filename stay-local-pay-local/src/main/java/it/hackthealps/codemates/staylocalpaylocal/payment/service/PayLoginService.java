@@ -1,4 +1,4 @@
-package it.hackthealps.codemates.staylocalpaylocal.service;
+package it.hackthealps.codemates.staylocalpaylocal.payment.service;
 
 import java.util.UUID;
 
@@ -6,11 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import it.hackthealps.codemates.staylocalpaylocal.common.NoUserException;
-import it.hackthealps.codemates.staylocalpaylocal.dto.TokenDTO;
-import it.hackthealps.codemates.staylocalpaylocal.model.enitites.User;
-import it.hackthealps.codemates.staylocalpaylocal.model.repositories.UserRepository;
+import it.hackthealps.codemates.staylocalpaylocal.payment.dto.TokenDTO;
+import it.hackthealps.codemates.staylocalpaylocal.payment.model.entities.User;
+import it.hackthealps.codemates.staylocalpaylocal.payment.model.repositories.UserRepository;
 @Service
-public class LoginService {
+public class PayLoginService {
 	@Autowired
 	UserRepository repository;
 

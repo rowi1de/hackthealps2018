@@ -1,4 +1,4 @@
-package it.hackthealps.codemates.staylocalpaylocal.dto;
+package it.hackthealps.codemates.staylocalpaylocal.payment.dto;
 
 import javax.validation.constraints.NotBlank;
 

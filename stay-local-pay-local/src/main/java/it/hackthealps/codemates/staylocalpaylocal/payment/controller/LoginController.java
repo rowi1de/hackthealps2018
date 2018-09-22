@@ -1,4 +1,4 @@
-package it.hackthealps.codemates.staylocalpaylocal.controller;
+package it.hackthealps.codemates.staylocalpaylocal.payment.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -6,15 +6,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.hackthealps.codemates.staylocalpaylocal.common.NoUserException;
-import it.hackthealps.codemates.staylocalpaylocal.controller.api.ILoginController;
-import it.hackthealps.codemates.staylocalpaylocal.dto.LoginDTO;
-import it.hackthealps.codemates.staylocalpaylocal.dto.TokenDTO;
-import it.hackthealps.codemates.staylocalpaylocal.service.LoginService;
+import it.hackthealps.codemates.staylocalpaylocal.payment.controller.api.ILoginController;
+import it.hackthealps.codemates.staylocalpaylocal.payment.dto.LoginDTO;
+import it.hackthealps.codemates.staylocalpaylocal.payment.dto.TokenDTO;
+import it.hackthealps.codemates.staylocalpaylocal.payment.service.PayLoginService;
 @RestController
 public class LoginController implements ILoginController {
 
 	@Autowired
-	LoginService service;
+	PayLoginService service;
 
 	@Override
 	public ResponseEntity<TokenDTO> getToken(@RequestBody LoginDTO login) throws NoUserException {

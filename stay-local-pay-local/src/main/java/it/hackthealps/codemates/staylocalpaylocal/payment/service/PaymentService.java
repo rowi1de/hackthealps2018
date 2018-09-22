@@ -1,4 +1,4 @@
-package it.hackthealps.codemates.staylocalpaylocal.service;
+package it.hackthealps.codemates.staylocalpaylocal.payment.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,13 +8,13 @@ import org.springframework.stereotype.Service;
 import it.hackthealps.codemates.staylocalpaylocal.common.NoProductException;
 import it.hackthealps.codemates.staylocalpaylocal.common.NoShopException;
 import it.hackthealps.codemates.staylocalpaylocal.common.NoUserException;
-import it.hackthealps.codemates.staylocalpaylocal.dto.PaymentDTO;
-import it.hackthealps.codemates.staylocalpaylocal.model.enitites.Product;
-import it.hackthealps.codemates.staylocalpaylocal.model.enitites.Shop;
-import it.hackthealps.codemates.staylocalpaylocal.model.enitites.User;
-import it.hackthealps.codemates.staylocalpaylocal.model.repositories.ProductRepository;
-import it.hackthealps.codemates.staylocalpaylocal.model.repositories.ShopRepository;
-import it.hackthealps.codemates.staylocalpaylocal.model.repositories.UserRepository;
+import it.hackthealps.codemates.staylocalpaylocal.payment.dto.PaymentDTO;
+import it.hackthealps.codemates.staylocalpaylocal.payment.model.entities.Product;
+import it.hackthealps.codemates.staylocalpaylocal.payment.model.entities.Shop;
+import it.hackthealps.codemates.staylocalpaylocal.payment.model.entities.User;
+import it.hackthealps.codemates.staylocalpaylocal.payment.model.repositories.ProductRepository;
+import it.hackthealps.codemates.staylocalpaylocal.payment.model.repositories.ShopRepository;
+import it.hackthealps.codemates.staylocalpaylocal.payment.model.repositories.UserRepository;
 
 @Service
 public class PaymentService {
