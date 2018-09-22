@@ -16,7 +16,6 @@ import it.hackthealps.codemates.staylocalpaylocal.opendata.model.EventModel;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.GastronomyModel;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.ScoreValue;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.repository.AccommodationRepository;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.repository.BaseRepository;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.repository.EventRepository;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.repository.GastronomyRepository;
 import it.hackthealps.codemates.staylocalpaylocal.payment.dto.PaymentDTO;
