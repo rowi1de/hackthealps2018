@@ -3,7 +3,7 @@ package it.hackthealps.codemates.staylocalpaylocal.opendata.service;
 import javax.transaction.Transactional;
 import java.util.List;
 
-import it.hackthealps.codemates.staylocalpaylocal.api.AccommodationApi;
+import it.hackthealps.codemates.staylocalpaylocal.opendata.api.AccommodationApi;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.Accommodation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -1,8 +1,5 @@
 package it.hackthealps.codemates.staylocalpaylocal.opendata.invoker;
 
-import com.fasterxml.jackson.databind.JavaType;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.type.TypeFactory;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.invoker.auth.ApiKeyAuth;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.invoker.auth.Authentication;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.invoker.auth.HttpBasicAuth;
@@ -11,7 +8,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.core.ResolvableType;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpRequest;
@@ -25,7 +21,6 @@ import org.springframework.http.client.BufferingClientHttpRequestFactory;
 import org.springframework.http.client.ClientHttpRequestExecution;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.http.client.ClientHttpResponse;
-import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -39,9 +34,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
-import java.lang.reflect.TypeVariable;
 import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -71,14 +63,11 @@ public class ApiClient {
             return StringUtils.collectionToDelimitedString(collection, separator);
         }
     }
-    
+
     private boolean debugging = false;
 
-    @Autowired
-    private ObjectMapper objectMapper;
-    
     private HttpHeaders defaultHeaders = new HttpHeaders();
-    
+
     private String basePath = "http://tourism.opendatahub.bz.it";
 
     private RestTemplate restTemplate;
@@ -87,20 +76,20 @@ public class ApiClient {
 
     private HttpStatus statusCode;
     private MultiValueMap<String, String> responseHeaders;
-    
+
     private DateFormat dateFormat;
 
     public ApiClient() {
         this.restTemplate = buildRestTemplate();
         init();
     }
-    
+
     @Autowired
     public ApiClient(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
         init();
     }
-    
+
     protected void init() {
         // Use RFC3339 format for date and datetime.
         // See http://xml2rfc.ietf.org/public/rfc/html/rfc3339.html#anchor14
@@ -117,7 +106,7 @@ public class ApiClient {
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
     }
-    
+
     /**
      * Get the current base path
      * @return String the base path
@@ -264,7 +253,7 @@ public class ApiClient {
         defaultHeaders.add(name, value);
         return this;
     }
-    
+
     public void setDebugging(boolean debugging) {
         List<ClientHttpRequestInterceptor> currentInterceptors = this.restTemplate.getInterceptors();
         if(debugging) {
@@ -314,7 +303,7 @@ public class ApiClient {
         this.dateFormat = dateFormat;
         return this;
     }
-    
+
     /**
      * Parse the given string into Date object.
      */
@@ -404,10 +393,10 @@ public class ApiClient {
     }
 
     /**
-    * Check if the given {@code String} is a JSON MIME.
-    * @param mediaType the input MediaType
-    * @return boolean true if the MediaType represents JSON, false otherwise
-    */
+     * Check if the given {@code String} is a JSON MIME.
+     * @param mediaType the input MediaType
+     * @return boolean true if the MediaType represents JSON, false otherwise
+     */
     public boolean isJsonMime(String mediaType) {
         // "* / *" is default to JSON
         if ("*/*".equals(mediaType)) {
@@ -506,12 +495,12 @@ public class ApiClient {
      */
     public <T> T invokeAPI(String path, HttpMethod method, MultiValueMap<String, String> queryParams, Object body, HttpHeaders headerParams, MultiValueMap<String, Object> formParams, List<MediaType> accept, MediaType contentType, String[] authNames, ParameterizedTypeReference<T> returnType) throws RestClientException {
         updateParamsForAuth(authNames, queryParams, headerParams);
-        
+
         final UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(basePath).path(path);
         if (queryParams != null) {
             builder.queryParams(queryParams);
         }
-        
+
         final BodyBuilder requestBuilder = RequestEntity.method(method, builder.build().toUri());
         if(accept != null) {
             requestBuilder.accept(accept.toArray(new MediaType[accept.size()]));
@@ -519,15 +508,14 @@ public class ApiClient {
         if(contentType != null) {
             requestBuilder.contentType(contentType);
         }
-        
+
         addHeadersToRequest(headerParams, requestBuilder);
         addHeadersToRequest(defaultHeaders, requestBuilder);
-        
+
         RequestEntity<Object> requestEntity = requestBuilder.body(selectBody(body, formParams, contentType));
 
-        final ResponseEntity<String> responseEntity = restTemplate.exchange(requestEntity, String.class);
+        ResponseEntity<T> responseEntity = restTemplate.exchange(requestEntity, returnType);
 
-        
         statusCode = responseEntity.getStatusCode();
         responseHeaders = responseEntity.getHeaders();
 
@@ -537,86 +525,13 @@ public class ApiClient {
             if (returnType == null) {
                 return null;
             }
-            String json = responseEntity.getBody();
-            int startWrapper = json.indexOf("\"Items\": [");
-            int endWrapper = json.lastIndexOf("]");
-            if(startWrapper >= 0 && endWrapper >= 0){
-                json = json.substring(startWrapper, endWrapper);
-                return objectMapper.convertValue(json, getJavaType(returnType.getType(),null ));
-            }
-          throw new IllegalArgumentException("could not parse json="+ json);
+            return responseEntity.getBody();
         } else {
             // The error handler built into the RestTemplate should handle 400 and 500 series errors.
             throw new RestClientException("API returned " + statusCode + " and it wasn't handled by the RestTemplate error handler");
         }
     }
 
-    protected JavaType getJavaType(Type type, Class<?> contextClass) {
-        TypeFactory typeFactory = this.objectMapper.getTypeFactory();
-        if (contextClass != null) {
-            ResolvableType resolvedType = ResolvableType.forType(type);
-            if (type instanceof TypeVariable) {
-                ResolvableType resolvedTypeVariable = this.resolveVariable((TypeVariable)type, ResolvableType.forClass(contextClass));
-                if (resolvedTypeVariable != ResolvableType.NONE) {
-                    return typeFactory.constructType(resolvedTypeVariable.resolve());
-                }
-            } else if (type instanceof ParameterizedType && resolvedType.hasUnresolvableGenerics()) {
-                ParameterizedType parameterizedType = (ParameterizedType)type;
-                Class<?>[] generics = new Class[parameterizedType.getActualTypeArguments().length];
-                Type[] typeArguments = parameterizedType.getActualTypeArguments();
-
-                for(int i = 0; i < typeArguments.length; ++i) {
-                    Type typeArgument = typeArguments[i];
-                    if (typeArgument instanceof TypeVariable) {
-                        ResolvableType resolvedTypeArgument = this.resolveVariable((TypeVariable)typeArgument, ResolvableType.forClass(contextClass));
-                        if (resolvedTypeArgument != ResolvableType.NONE) {
-                            generics[i] = resolvedTypeArgument.resolve();
-                        } else {
-                            generics[i] = ResolvableType.forType(typeArgument).resolve();
-                        }
-                    } else {
-                        generics[i] = ResolvableType.forType(typeArgument).resolve();
-                    }
-                }
-
-                return typeFactory.constructType(ResolvableType.forClassWithGenerics(resolvedType.getRawClass(), generics).getType());
-            }
-        }
-
-        return typeFactory.constructType(type);
-    }
-
-    private ResolvableType resolveVariable(TypeVariable<?> typeVariable, ResolvableType contextType) {
-        ResolvableType resolvedType;
-        if (contextType.hasGenerics()) {
-            resolvedType = ResolvableType.forType(typeVariable, contextType);
-            if (resolvedType.resolve() != null) {
-                return resolvedType;
-            }
-        }
-
-        ResolvableType superType = contextType.getSuperType();
-        if (superType != ResolvableType.NONE) {
-            resolvedType = this.resolveVariable(typeVariable, superType);
-            if (resolvedType.resolve() != null) {
-                return resolvedType;
-            }
-        }
-
-        ResolvableType[] var5 = contextType.getInterfaces();
-        int var6 = var5.length;
-
-        for(int var7 = 0; var7 < var6; ++var7) {
-            ResolvableType ifc = var5[var7];
-            resolvedType = this.resolveVariable(typeVariable, ifc);
-            if (resolvedType.resolve() != null) {
-                return resolvedType;
-            }
-        }
-
-        return ResolvableType.NONE;
-    }
-    
     /**
      * Add headers to the request that is being built
      * @param headers The headers to add
@@ -660,7 +575,7 @@ public class ApiClient {
             auth.applyToParams(queryParams, headerParams);
         }
     }
-    
+
     private class ApiClientHttpRequestInterceptor implements ClientHttpRequestInterceptor {
         private final Log log = LogFactory.getLog(ApiClientHttpRequestInterceptor.class);
 
@@ -699,7 +614,7 @@ public class ApiClient {
             builder.setLength(builder.length() - 1); // Get rid of trailing comma
             return builder.toString();
         }
-        
+
         private String bodyToString(InputStream body) throws IOException {
             StringBuilder builder = new StringBuilder();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(body, StandardCharsets.UTF_8));
