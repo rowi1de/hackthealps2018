@@ -4,7 +4,6 @@ import static java.util.stream.Collectors.toList;
 
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import it.hackthealps.codemates.staylocalpaylocal.opendata.api.AccommodationApi;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.AccommodationModel;
@@ -54,5 +53,10 @@ public class AccommodationService {
                         .collect(toList());
 
         repository.saveAll(items);
+    }
+
+    @Transactional
+    public List<AccommodationModel> getAllAccommodations() {
+        return repository.findAll();
     }
 }

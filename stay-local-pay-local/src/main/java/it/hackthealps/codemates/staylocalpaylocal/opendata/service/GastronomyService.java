@@ -49,4 +49,9 @@ public class GastronomyService {
 
         repository.saveAll(items);
     }
+
+    @Transactional
+    public List<GastronomyModel> getAllGastronomy() {
+        return repository.findAll();
+    }
 }
