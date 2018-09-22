@@ -9,7 +9,6 @@ import java.util.List;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.api.EventApi;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.EventModel;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.EventResult;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.ScoreValue;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.repository.EventRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -48,11 +47,10 @@ public class EventService {
                 result.getItems().stream()
                         .filter(item -> item.getDistrictIds() != null)
                         .map(item -> EventModel.builder()
-                        .title(item.getShortname())
-                        .latitude(item.getLatitude())
+                                .title(item.getShortname())
+                                .latitude(item.getLatitude())
                                 .scoreModel(scoreService.score(item))
-                        .longitude(item.getLongitude()).build())
-                        .filter(item -> item.getScoreModel().getScoreValue() != ScoreValue.ZERO_STAR)
+                                .longitude(item.getLongitude()).build())
                         .collect(toList());
 
         repository.saveAll(items);
