@@ -17,7 +17,7 @@ class MainFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_main, container, false)
         (activity as AppCompatActivity).setSupportActionBar(view.toolbar)
-
+//new thread profile json, reactjs, asynctask (obsolete) 
         return view
     }
 }
