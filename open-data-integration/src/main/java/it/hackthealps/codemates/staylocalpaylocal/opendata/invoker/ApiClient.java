@@ -1,5 +1,8 @@
 package it.hackthealps.codemates.staylocalpaylocal.opendata.invoker;
 
+import com.fasterxml.jackson.databind.JavaType;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.type.TypeFactory;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.invoker.auth.ApiKeyAuth;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.invoker.auth.Authentication;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.invoker.auth.HttpBasicAuth;
@@ -8,6 +11,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.core.ResolvableType;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpRequest;
@@ -21,6 +25,7 @@ import org.springframework.http.client.BufferingClientHttpRequestFactory;
 import org.springframework.http.client.ClientHttpRequestExecution;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.http.client.ClientHttpResponse;
+import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -34,6 +39,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+import java.lang.reflect.TypeVariable;
 import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -65,6 +73,9 @@ public class ApiClient {
     }
     
     private boolean debugging = false;
+
+    @Autowired
+    private ObjectMapper objectMapper;
     
     private HttpHeaders defaultHeaders = new HttpHeaders();
     
@@ -514,7 +525,8 @@ public class ApiClient {
         
         RequestEntity<Object> requestEntity = requestBuilder.body(selectBody(body, formParams, contentType));
 
-        ResponseEntity<T> responseEntity = restTemplate.exchange(requestEntity, returnType);
+        final ResponseEntity<String> responseEntity = restTemplate.exchange(requestEntity, String.class);
+
         
         statusCode = responseEntity.getStatusCode();
         responseHeaders = responseEntity.getHeaders();
@@ -525,11 +537,84 @@ public class ApiClient {
             if (returnType == null) {
                 return null;
             }
-            return responseEntity.getBody();
+            String json = responseEntity.getBody();
+            int startWrapper = json.indexOf("\"Items\": [");
+            int endWrapper = json.lastIndexOf("]");
+            if(startWrapper >= 0 && endWrapper >= 0){
+                json = json.substring(startWrapper, endWrapper);
+                return objectMapper.convertValue(json, getJavaType(returnType.getType(),null ));
+            }
+          throw new IllegalArgumentException("could not parse json="+ json);
         } else {
             // The error handler built into the RestTemplate should handle 400 and 500 series errors.
             throw new RestClientException("API returned " + statusCode + " and it wasn't handled by the RestTemplate error handler");
         }
+    }
+
+    protected JavaType getJavaType(Type type, Class<?> contextClass) {
+        TypeFactory typeFactory = this.objectMapper.getTypeFactory();
+        if (contextClass != null) {
+            ResolvableType resolvedType = ResolvableType.forType(type);
+            if (type instanceof TypeVariable) {
+                ResolvableType resolvedTypeVariable = this.resolveVariable((TypeVariable)type, ResolvableType.forClass(contextClass));
+                if (resolvedTypeVariable != ResolvableType.NONE) {
+                    return typeFactory.constructType(resolvedTypeVariable.resolve());
+                }
+            } else if (type instanceof ParameterizedType && resolvedType.hasUnresolvableGenerics()) {
+                ParameterizedType parameterizedType = (ParameterizedType)type;
+                Class<?>[] generics = new Class[parameterizedType.getActualTypeArguments().length];
+                Type[] typeArguments = parameterizedType.getActualTypeArguments();
+
+                for(int i = 0; i < typeArguments.length; ++i) {
+                    Type typeArgument = typeArguments[i];
+                    if (typeArgument instanceof TypeVariable) {
+                        ResolvableType resolvedTypeArgument = this.resolveVariable((TypeVariable)typeArgument, ResolvableType.forClass(contextClass));
+                        if (resolvedTypeArgument != ResolvableType.NONE) {
+                            generics[i] = resolvedTypeArgument.resolve();
+                        } else {
+                            generics[i] = ResolvableType.forType(typeArgument).resolve();
+                        }
+                    } else {
+                        generics[i] = ResolvableType.forType(typeArgument).resolve();
+                    }
+                }
+
+                return typeFactory.constructType(ResolvableType.forClassWithGenerics(resolvedType.getRawClass(), generics).getType());
+            }
+        }
+
+        return typeFactory.constructType(type);
+    }
+
+    private ResolvableType resolveVariable(TypeVariable<?> typeVariable, ResolvableType contextType) {
+        ResolvableType resolvedType;
+        if (contextType.hasGenerics()) {
+            resolvedType = ResolvableType.forType(typeVariable, contextType);
+            if (resolvedType.resolve() != null) {
+                return resolvedType;
+            }
+        }
+
+        ResolvableType superType = contextType.getSuperType();
+        if (superType != ResolvableType.NONE) {
+            resolvedType = this.resolveVariable(typeVariable, superType);
+            if (resolvedType.resolve() != null) {
+                return resolvedType;
+            }
+        }
+
+        ResolvableType[] var5 = contextType.getInterfaces();
+        int var6 = var5.length;
+
+        for(int var7 = 0; var7 < var6; ++var7) {
+            ResolvableType ifc = var5[var7];
+            resolvedType = this.resolveVariable(typeVariable, ifc);
+            if (resolvedType.resolve() != null) {
+                return resolvedType;
+            }
+        }
+
+        return ResolvableType.NONE;
     }
     
     /**
