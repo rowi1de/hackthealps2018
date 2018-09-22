@@ -46,7 +46,7 @@ public class AccommodationService {
                 null,
                 "50.18424",
                 "8.5232",
-                "100");
+                "200");
         final List<AccommodationModel> items =
                 result.getItems().stream()
                         .filter(item -> item.getFeatures() != null)
