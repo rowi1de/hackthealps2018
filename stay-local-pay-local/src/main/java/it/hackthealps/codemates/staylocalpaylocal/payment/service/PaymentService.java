@@ -1,6 +1,7 @@
 package it.hackthealps.codemates.staylocalpaylocal.payment.service;
 
 import java.util.Optional;
+import java.util.Random;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,20 +12,14 @@ import it.hackthealps.codemates.staylocalpaylocal.common.NoProductException;
 import it.hackthealps.codemates.staylocalpaylocal.common.NoShopException;
 import it.hackthealps.codemates.staylocalpaylocal.common.NoUserException;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.AccommodationModel;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.model.BaseModel;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.EventModel;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.GastronomyModel;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.model.ScoreValue;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.repository.AccommodationRepository;
-import it.hackthealps.codemates.staylocalpaylocal.opendata.repository.BaseRepository;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.repository.EventRepository;
 import it.hackthealps.codemates.staylocalpaylocal.opendata.repository.GastronomyRepository;
 import it.hackthealps.codemates.staylocalpaylocal.payment.dto.PaymentDTO;
-import it.hackthealps.codemates.staylocalpaylocal.payment.model.entities.Product;
-import it.hackthealps.codemates.staylocalpaylocal.payment.model.entities.Shop;
 import it.hackthealps.codemates.staylocalpaylocal.payment.model.entities.User;
-import it.hackthealps.codemates.staylocalpaylocal.payment.model.repositories.ProductRepository;
-import it.hackthealps.codemates.staylocalpaylocal.payment.model.repositories.ShopRepository;
 import it.hackthealps.codemates.staylocalpaylocal.payment.model.repositories.UserRepository;
 
 @Service
@@ -55,44 +50,75 @@ public class PaymentService {
 
 	private boolean saveSuccess(User user, PaymentDTO payment) throws NoUserException {
 		user.setTransactionKey(payment.getCustomerTransactionKey());
-		int scoreToAdd = getScoreFrom(payment);
-
-		user.setPoints(user.getPoints() + scoreToAdd);
+		setScoreAndPriceFrom(payment, user);
 		repo.save(user);
-
 		LOG.debug("After from DB:{}", repo.findById(42L).orElseThrow(() -> new NoUserException("nothing in db")));
 		return true;
 	}
 
-	private int getScoreFrom(PaymentDTO payment) {
+	// TODO price
+	private void setScoreAndPriceFrom(PaymentDTO payment, User user) {
 		int scoreToAdd = 0;
+		int price = 0;
 		Long modelID = payment.getModelID();
-		Optional<AccommodationModel> accom = accomRepo.findById(modelID);
-		Optional<GastronomyModel> gastro = gastroRepo.findById(modelID);
-		Optional<EventModel> event = eventRepo.findById(modelID);
+		Optional<AccommodationModel> accom = modelID > 0 ? accomRepo.findById(modelID)
+				: accomRepo.findByTitle(payment.getModelName());
+		Optional<GastronomyModel> gastro = modelID > 0 ? gastroRepo.findById(modelID)
+				: gastroRepo.findByTitle(payment.getModelName());
+		Optional<EventModel> event = modelID > 0 ? eventRepo.findById(modelID)
+				: eventRepo.findByTitle(payment.getModelName());
 		if (accom.isPresent()) {
 			AccommodationModel am = accom.get();
 			scoreToAdd = getScoreValueToAdd(am.getScoreModel().getScoreValue());
+			price = getPrice(am.getScoreModel().getScoreValue());
 			LOG.debug("Accommodation from DB:{}", am);
-
 		}
 		if (gastro.isPresent()) {
 			GastronomyModel gm = gastro.get();
 			scoreToAdd = getScoreValueToAdd(gm.getScoreModel().getScoreValue());
+			price = getPrice(gm.getScoreModel().getScoreValue());
 			LOG.debug("Gastro from DB:{}", gm);
-
 		}
 		if (event.isPresent()) {
 			EventModel em = event.get();
 			scoreToAdd = getScoreValueToAdd(em.getScoreModel().getScoreValue());
+			price = getPrice(em.getScoreModel().getScoreValue());
 			LOG.debug("Event from DB:{}", em);
-
 		}
-		return scoreToAdd;
+		if (payment.isGreenTravel()) {
+			scoreToAdd += 20;
+			user.setGreenTravel(true);
+		}
+		user.setPoints(user.getPoints() + scoreToAdd);
+		user.setTotal(user.getTotal() - price);
 	}
 
 	private int getScoreValueToAdd(ScoreValue scoreValue) {
-		return scoreValue == scoreValue.ZERO_STAR ? pointMult : pointMult * 2;
+		switch (scoreValue) {
+		case ONE_STAR:
+			return pointMult;
+		case TWO_STAR:
+			return pointMult * 2;
+		case THREE_STAR:
+			return pointMult * 3;
+		default:
+			return pointMult / 2;
+		}
+	}
+
+	private int getPrice(ScoreValue scoreValue) {
+		Random r = new Random();
+		int nextInt = r.nextInt(100);
+		switch (scoreValue) {
+		case ONE_STAR:
+			return nextInt * 2;
+		case TWO_STAR:
+			return nextInt * 3;
+		case THREE_STAR:
+			return nextInt * 4;
+		default:
+			return nextInt;
+		}
 	}
 
 }

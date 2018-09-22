@@ -8,8 +8,11 @@ import org.springframework.web.bind.annotation.RestController;
 import it.hackthealps.codemates.staylocalpaylocal.common.NoUserException;
 import it.hackthealps.codemates.staylocalpaylocal.payment.controller.api.ILoginController;
 import it.hackthealps.codemates.staylocalpaylocal.payment.dto.LoginDTO;
+import it.hackthealps.codemates.staylocalpaylocal.payment.dto.ProfileDTO;
 import it.hackthealps.codemates.staylocalpaylocal.payment.dto.TokenDTO;
 import it.hackthealps.codemates.staylocalpaylocal.payment.service.PayLoginService;
+
+
 @RestController
 public class LoginController implements ILoginController {
 
@@ -19,6 +22,11 @@ public class LoginController implements ILoginController {
 	@Override
 	public ResponseEntity<TokenDTO> getToken(@RequestBody LoginDTO login) throws NoUserException {
 		return ResponseEntity.ok(service.getToken());
+	}
+
+	@Override
+	public ResponseEntity<ProfileDTO> getProfile() throws NoUserException {
+		return ResponseEntity.ok(service.getProfile());
 	}
 
 }

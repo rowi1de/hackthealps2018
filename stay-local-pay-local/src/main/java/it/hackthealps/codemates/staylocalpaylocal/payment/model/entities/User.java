@@ -4,20 +4,22 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-//sveti ivan pokrystitel s
+
 @Entity
 @Table(name = "user")
 public class User {
 
-
 	@Id
 	@GeneratedValue
 	private Long id;
-	private String name;
+	private String lastName;
+	private String firstName;
 	private String tokenIdentification;
-	//temporal
+	// temporal
 	private String transactionKey;
 	private int points;
+	private int total;
+	private boolean greenTravel;
 
 	public String getTokenIdentification() {
 		return tokenIdentification;
@@ -28,12 +30,12 @@ public class User {
 		return this;
 	}
 
-	public String getName() {
-		return name;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public User setName(String name) {
-		this.name = name;
+	public User setLastName(String name) {
+		this.lastName = name;
 		return this;
 	}
 
@@ -54,9 +56,37 @@ public class User {
 		this.points = points;
 	}
 
+	public int getTotal() {
+		return total;
+	}
+
+	public User setTotal(int total) {
+		this.total = total;
+		return this;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", tokenIdentification=" + tokenIdentification
-				+ ", transactionKey=" + transactionKey + ", points=" + points + "]";
+		return "User [id=" + id + ", lastName=" + lastName + ", firstName=" + firstName + ", tokenIdentification="
+				+ tokenIdentification + ", transactionKey=" + transactionKey + ", points=" + points + ", total=" + total
+				+ "]";
 	}
+
+	public boolean isGreenTravel() {
+		return greenTravel;
+	}
+
+	public User setGreenTravel(boolean greenTravel) {
+		this.greenTravel = greenTravel;
+		return this;
+	}
+
 }

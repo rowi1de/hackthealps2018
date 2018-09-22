@@ -9,6 +9,8 @@ public class PaymentDTO {
 	private String shopTokenIdentification;
 	private String shopTransactionKey;
 	private Long modelID;
+	private String modelName;
+	private boolean greenTravel;
 
 	public String getCustomerTokenIdentification() {
 		return customerTokenIdentification;
@@ -59,6 +61,22 @@ public class PaymentDTO {
 
 	public void setShopTransactionKey(String shopTransactionKey) {
 		this.shopTransactionKey = shopTransactionKey;
+	}
+
+	public boolean isGreenTravel() {
+		return greenTravel;
+	}
+
+	public void setGreenTravel(boolean greenTravel) {
+		this.greenTravel = greenTravel;
+	}
+
+	public String getModelName() {
+		return modelName;
+	}
+
+	public void setModelName(String modelName) {
+		this.modelName = modelName;
 	}
 
 }
