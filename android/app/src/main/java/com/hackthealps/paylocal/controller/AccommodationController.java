@@ -2,8 +2,8 @@ package com.hackthealps.paylocal.controller;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.hackthealps.paylocal.api.EventApi;
-import com.hackthealps.paylocal.model.EventModel;
+import com.hackthealps.paylocal.api.AccommodationApi;
+import com.hackthealps.paylocal.model.AccommodationModel;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class Controller implements Callback<List<EventModel>> {
+public class AccommodationController implements Callback<List<AccommodationModel>> {
 
     static final String BASE_URL = "https://f5770c5c.ngrok.io/hta/";
 
@@ -27,17 +27,17 @@ public class Controller implements Callback<List<EventModel>> {
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
-        EventApi eventApi = retrofit.create(EventApi.class);
+        AccommodationApi accommodationApi = retrofit.create(AccommodationApi.class);
 
-        Call<List<EventModel>> call = eventApi.getAllEvents();
+        Call<List<AccommodationModel>> call = accommodationApi.getAllAccommodations ();
         call.enqueue(this);
     }
 
     @Override
-    public void onResponse(Call<List<EventModel>> call, Response<List<EventModel>> response) {
+    public void onResponse(Call<List<AccommodationModel>> call, Response<List<AccommodationModel>> response) {
         if(response.isSuccessful()) {
-            List<EventModel> eventsList = response.body();
-            for(EventModel event : eventsList) {
+            List<AccommodationModel> eventsList = response.body();
+            for(AccommodationModel event : eventsList) {
                 System.out.println(event);
             }
         } else {
@@ -46,7 +46,7 @@ public class Controller implements Callback<List<EventModel>> {
     }
 
     @Override
-    public void onFailure(Call<List<EventModel>> call, Throwable t) {
+    public void onFailure(Call<List<AccommodationModel>> call, Throwable t) {
         t.printStackTrace();
     }
 }

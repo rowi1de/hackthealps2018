@@ -1,6 +1,6 @@
 package com.hackthealps.paylocal.api;
 
-import com.hackthealps.paylocal.model.GastronomyModel;
+import com.hackthealps.paylocal.model.AccommodationModel;
 
 import java.util.List;
 
@@ -9,6 +9,6 @@ import retrofit2.http.GET;
 
 public interface AccommodationApi {
 
-    @GET("Accommodation/")
-    Call<List<GastronomyModel>> getAllGastronomy();
+    @GET("Accommodations/")
+    Call<List<AccommodationModel>> getAllAccommodations();
 }
