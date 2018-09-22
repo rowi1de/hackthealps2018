@@ -1,5 +1,6 @@
 package it.hackthealps.codemates.staylocalpaylocal.opendata.service;
 
+import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.toList;
 
 import javax.transaction.Transactional;
@@ -19,6 +20,8 @@ public class EventService {
     private final EventApi eventApi;
 
     private final EventRepository repository;
+
+    private final ScoreService scoreService;
 
 
     @Transactional
@@ -41,10 +44,13 @@ public class EventService {
                 "100");
 
         final List<EventModel> items =
-                result.getItems().stream().map(item -> EventModel.builder()
-                        .title(item.getShortname())
-                        .latitude(item.getLatitude())
-                        .longitude(item.getLongitude()).build())
+                result.getItems().stream()
+                        .filter(item -> item.getDistrictIds() != null)
+                        .map(item -> EventModel.builder()
+                                .title(item.getShortname())
+                                .latitude(item.getLatitude())
+                                .scoreModel(scoreService.score(item))
+                                .longitude(item.getLongitude()).build())
                         .collect(toList());
 
         repository.saveAll(items);
@@ -53,6 +59,9 @@ public class EventService {
 
     @Transactional
     public List<EventModel> getAllEvents() {
-        return repository.findAll();
+        return repository.findAll()
+                .stream()
+                .sorted(comparing(EventModel::getScoreModel))
+                .collect(toList());
     }
 }
