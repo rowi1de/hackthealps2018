@@ -1,6 +1,7 @@
 package com.hackthealps.paylocal.ui
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -25,10 +26,9 @@ class CatalogueFragment : Fragment() {
         recyclerView.adapter = CatalogueAdapter(context!!, getCategoryList(), object: CatalogueAdapter.ItemClickListener {
             override fun onItemClick(category: Category) {
                 Log.d("CatalogueFragment", category.name)
-                when(category.name){
-                    "Gastronomy" -> GastronomyController().start()
-                    "Accommodation" -> AccommodationController().start()
-                    "Events" -> EventController().start()
+// TODO open new screen with product lists
+                val intent = Intent(context, ProductsActivity::class.java).apply {
+                    // TODO send category name
                 }
             }
         })
@@ -36,9 +36,11 @@ class CatalogueFragment : Fragment() {
         return view
     }
 
+    // TODO ideally this could be retrieved from the backend
     private fun getCategoryList(): List<Category> {
         val categories = mutableListOf<Category>()
         categories.add(Category("Gastronomy", R.drawable.gastronomy))
+        categories.add(Category("Mobility", R.drawable.mobility))
         categories.add(Category("Accommodation", R.drawable.accomodation))
         categories.add(Category("Events", R.drawable.events))
 
