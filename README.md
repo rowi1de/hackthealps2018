@@ -10,7 +10,7 @@ Hackthealps 2018 Hackathon
   * [Egle] - Graphics / Design
 
 ## open-data-integration
-* Swagger based API client for http://tourism.opendatahub.bz.it
+* [Swagger based API Client](https://github.com/swagger-api/swagger-codegen) for [IDM Suedtirol](https://github.com/idm-suedtirol) [Open Data Hub Tourism API](http://tourism.opendatahub.bz.it)
 
 ## stay-local-pay-local
 * Consume Accommodation, Gastronomy, Events, POI Endpoint
