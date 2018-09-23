@@ -1,6 +1,7 @@
 # hackthealps2018
 Hackthealps 2018 Hackathon
-[logo]: https://github.com/rowi1de/hackthealps2018/blob/master/paylocal.gif "Logo Title Text 2"
+![alt text](https://github.com/rowi1de/hackthealps2018/blob/master/paylocal.gif  "Logo Title Text 1")
+
 
 ## Android
 Android App for Enduser and Vendor
