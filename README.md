@@ -4,9 +4,10 @@ Hackthealps 2018 Hackathon
 * Goal: Pay (for) local products – Get rewards for sustainability
 * Link: https://www.hackthealps.it/projects/RENET
 * Team
-  * https://github.com/narko - Android
-  * https://github.com/mayaang - Backend
-  * https://github.com/rowi1de - Backend
+  * [narko](https://github.com/narko) - Android
+  * [mayaang](https://github.com/mayaang) - Android  
+  * [rowi1de](https://github.com/rowi1de) - Android
+  * [Egle] - Graphics / Design
 
 ## open-data-integration
 * Swagger based API client for http://tourism.opendatahub.bz.it
