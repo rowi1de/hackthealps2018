@@ -5,8 +5,8 @@ Hackthealps 2018 Hackathon
 * Link: https://www.hackthealps.it/projects/RENET
 * Team
   * [narko](https://github.com/narko) - Android
-  * [mayaang](https://github.com/mayaang) - Android  
-  * [rowi1de](https://github.com/rowi1de) - Android
+  * [mayaang](https://github.com/mayaang) - Backend  
+  * [rowi1de](https://github.com/rowi1de) - Backend
   * [Egle] - Graphics / Design
 
 ## open-data-integration
