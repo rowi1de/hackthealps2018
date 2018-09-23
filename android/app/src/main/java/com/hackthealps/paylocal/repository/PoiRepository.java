@@ -7,7 +7,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.hackthealps.paylocal.BuildConfig;
 import com.hackthealps.paylocal.api.PoiApi;
-import com.hackthealps.paylocal.model.AccommodationModel;
 import com.hackthealps.paylocal.model.PoiModel;
 
 import java.util.List;
@@ -46,7 +45,7 @@ public class PoiRepository {
         return accommodationRepository;
     }
 
-    public LiveData<List<AccommodationModel>> getPOI() {
+    public LiveData<List<PoiModel>> getPOI() {
         final MutableLiveData<List<PoiModel>> data = new MutableLiveData<>();
 
         poiApi.getAllPoi().enqueue(new Callback<List<PoiModel>>() {
