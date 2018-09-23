@@ -53,4 +53,7 @@ dependencies {
     implementation "android.arch.lifecycle:extensions:$project.arch"
     annotationProcessor "android.arch.lifecycle:compiler:$project.arch"
     implementation "com.android.support:appcompat-v7:$project.appcompat"
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
+
+
 }

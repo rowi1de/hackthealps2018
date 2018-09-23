@@ -33,9 +33,11 @@ class CatalogueFragment : Fragment() {
         return view
     }
 
+    // TODO ideally this could be retrieved from the backend
     private fun getCategoryList(): List<Category> {
         val categories = mutableListOf<Category>()
         categories.add(Category("Gastronomy", R.drawable.gastronomy))
+        categories.add(Category("Mobility", R.drawable.mobility))
         categories.add(Category("Accommodation", R.drawable.accomodation))
         categories.add(Category("Events", R.drawable.events))
 
