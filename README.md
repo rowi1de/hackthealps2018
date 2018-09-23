@@ -1,10 +1,12 @@
 # hackthealps2018
 Hackthealps 2018 Hackathon
-Project: Stay Local Pay Local
-Team:
-* https://github.com/narko - Android
-* https://github.com/mayaang - Backend
-* https://github.com/rowi1de - Backend
+* Project: Stay Local Pay Local / RENET Pay Products Points
+* Goal: Pay (for) local products – Get rewards for sustainability
+* Link: https://www.hackthealps.it/projects/RENET
+* Team
+  * https://github.com/narko - Android
+  * https://github.com/mayaang - Backend
+  * https://github.com/rowi1de - Backend
 
 ## open-data-integration
 * Swagger based API client for http://tourism.opendatahub.bz.it
