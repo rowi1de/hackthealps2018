@@ -1,6 +1,7 @@
 # hackthealps2018
 Hackthealps 2018 Hackathon
-![alt text](https://github.com/rowi1de/hackthealps2018/blob/master/paylocal.gif  "Logo Title Text 1")
+
+![Stay Local Pay Local](https://github.com/rowi1de/hackthealps2018/blob/master/paylocal.gif  "Stay Local Pay Local")
 
 
 ## Android
