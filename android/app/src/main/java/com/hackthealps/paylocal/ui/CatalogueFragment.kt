@@ -22,7 +22,11 @@ class CatalogueFragment : Fragment() {
         recyclerView.adapter = CatalogueAdapter(context!!, getCategoryList(), object: CatalogueAdapter.ItemClickListener {
             override fun onItemClick(category: Category) {
                 Log.d("CatalogueFragment", category.name)
-                // TODO open new screen with product lists
+//                when(category.name){
+//                    "Gastronomy" -> GastronomyController().start()
+//                    "Accommodation" -> AccommodationController().start()
+//                    "Events" -> EventController().start()
+//                }
             }
         })
 

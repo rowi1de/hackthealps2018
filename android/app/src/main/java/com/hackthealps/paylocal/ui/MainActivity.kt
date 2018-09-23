@@ -11,7 +11,6 @@ import android.view.Menu
 import android.view.MenuItem
 import com.hackthealps.paylocal.R
 import kotlinx.android.synthetic.main.activity_main.*
-
 import kotlinx.android.synthetic.main.fragment_main.*
 
 class MainActivity : AppCompatActivity() {
